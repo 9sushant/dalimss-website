@@ -58,7 +58,7 @@ export default function Home() {
       {/* HERO */}
       <section style={{ backgroundColor: 'var(--maroon)' }}>
         <div style={{ height: '4px', backgroundColor: 'var(--gold)' }} />
-        <div className="max-w-7xl mx-auto px-4 py-12 lg:py-16">
+        <div style={{ maxWidth: '80rem', margin: '0 auto', padding: '3rem 1rem' }}>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
             <div className="lg:col-span-2">
               <p style={{ color: '#ddd', fontSize: '1rem', marginBottom: '0.5rem' }}>In an</p>

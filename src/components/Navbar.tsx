@@ -37,7 +37,7 @@ export default function Navbar() {
 
   return (
     <header style={{ backgroundColor: '#fff', boxShadow: '0 2px 8px rgba(0,0,0,0.08)' }} className="sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
+      <div style={{ maxWidth: '80rem', margin: '0 auto', padding: '0 1rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '4rem' }}>
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
           <div

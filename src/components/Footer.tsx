@@ -4,7 +4,7 @@ import { Mail, Phone } from 'lucide-react';
 export default function Footer() {
   return (
     <footer style={{ backgroundColor: 'var(--maroon)', color: 'white' }}>
-      <div className="max-w-7xl mx-auto px-4 py-12">
+      <div style={{ maxWidth: '80rem', margin: '0 auto', padding: '3rem 1rem' }}>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand */}
           <div>
