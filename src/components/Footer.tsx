@@ -14,13 +14,20 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div style={{ marginBottom: '1rem' }}>
-              <Image
-                src="/logo.png"
-                alt="DALIMSS Sunbeam Educomp Ltd"
-                width={180}
-                height={48}
-                style={{ objectFit: 'contain', height: '44px', width: 'auto' }}
-              />
+              <div style={{
+                display: 'inline-block',
+                background: 'white',
+                borderRadius: '0.5rem',
+                padding: '6px 12px',
+              }}>
+                <Image
+                  src="/logo.png"
+                  alt="DALIMSS Sunbeam Educomp Ltd"
+                  width={180}
+                  height={44}
+                  style={{ objectFit: 'contain', height: '40px', width: 'auto', display: 'block' }}
+                />
+              </div>
             </div>
             <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.82rem', lineHeight: 1.8, marginBottom: '1.25rem' }}>
               Exploring growth in education in an evolving and volatile world. 50+ years of legacy, 25+ schools, 15,000+ students.
