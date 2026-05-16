@@ -1,7 +1,6 @@
 'use client';
 import { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { Menu, X, ChevronDown } from 'lucide-react';
 
 const navLinks = [
@@ -55,13 +54,11 @@ export default function Navbar() {
 
         {/* Logo */}
         <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
-          <Image
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
             src="/logo.png"
             alt="DALIMSS Sunbeam Educomp Ltd"
-            width={200}
-            height={52}
-            style={{ objectFit: 'contain', height: '46px', width: 'auto' }}
-            priority
+            style={{ height: '46px', width: 'auto', objectFit: 'contain' }}
           />
         </Link>
 

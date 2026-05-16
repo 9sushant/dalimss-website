@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import { Mail, Phone } from 'lucide-react';
 
 export default function Footer() {
@@ -20,12 +19,11 @@ export default function Footer() {
                 borderRadius: '0.5rem',
                 padding: '6px 12px',
               }}>
-                <Image
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
                   src="/logo.png"
                   alt="DALIMSS Sunbeam Educomp Ltd"
-                  width={180}
-                  height={44}
-                  style={{ objectFit: 'contain', height: '40px', width: 'auto', display: 'block' }}
+                  style={{ height: '40px', width: 'auto', objectFit: 'contain', display: 'block' }}
                 />
               </div>
             </div>
