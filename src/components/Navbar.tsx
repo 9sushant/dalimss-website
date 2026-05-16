@@ -63,7 +63,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav style={{ display: 'flex', alignItems: 'center', gap: '0.15rem' }} className="hidden lg:flex">
+        <nav style={{ alignItems: 'center', gap: '0.15rem' }} className="desktop-nav">
           {navLinks.map((link) =>
             link.children ? (
               <div
@@ -156,7 +156,7 @@ export default function Navbar() {
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
           style={{
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            alignItems: 'center', justifyContent: 'center',
             width: '38px', height: '38px',
             borderRadius: '0.5rem',
             border: '1.5px solid #e5e5e5',
@@ -164,7 +164,7 @@ export default function Navbar() {
             color: 'var(--maroon)',
             cursor: 'pointer',
           }}
-          className="lg:hidden"
+          className="mobile-only"
         >
           {mobileOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
@@ -176,7 +176,9 @@ export default function Navbar() {
           borderTop: '1px solid #f0f0f0',
           background: 'white',
           padding: '0.5rem 0 1rem',
-        }} className="lg:hidden">
+          flexDirection: 'column',
+          width: '100%',
+        }} className="mobile-only">
           {navLinks.map((link) => (
             <div key={link.label}>
               <Link

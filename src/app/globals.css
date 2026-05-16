@@ -175,6 +175,14 @@ body {
   font-weight: 500;
 }
 
+/* Responsive visibility */
+.mobile-only { display: none !important; }
+.desktop-nav { display: flex !important; }
+@media (max-width: 1024px) {
+  .mobile-only { display: flex !important; }
+  .desktop-nav { display: none !important; }
+}
+
 /* Hero two-column layout */
 .hero-grid {
   display: grid;
