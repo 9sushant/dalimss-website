@@ -72,10 +72,10 @@ export default function Home() {
         <div style={{ height: '4px', background: 'linear-gradient(90deg, var(--gold-dark), var(--gold-light), var(--gold-dark))' }} />
 
         <div style={{ position: 'relative', maxWidth: '80rem', margin: '0 auto', padding: '3.5rem 1.5rem 3rem' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '3rem', alignItems: 'start' }}>
+          <div className="hero-grid">
 
             {/* Left: Headline */}
-            <div style={{ maxWidth: '680px' }}>
+            <div>
               <div style={{
                 display: 'inline-block',
                 background: 'rgba(201,162,39,0.15)',

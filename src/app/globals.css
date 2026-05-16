@@ -174,3 +174,16 @@ body {
   font-size: 1.05rem;
   font-weight: 500;
 }
+
+/* Hero two-column layout */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 390px;
+  gap: 3rem;
+  align-items: center;
+}
+@media (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+}
