@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Menu, X, ChevronDown } from 'lucide-react';
 
 const navLinks = [
@@ -53,23 +54,15 @@ export default function Navbar() {
       }}>
 
         {/* Logo */}
-        <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.625rem' }}>
-          <div style={{
-            background: 'linear-gradient(135deg, var(--maroon-dark), var(--maroon))',
-            color: 'var(--gold)',
-            fontWeight: 900,
-            fontSize: '1.05rem',
-            padding: '6px 11px',
-            borderRadius: '8px',
-            lineHeight: 1.2,
-            letterSpacing: '0.02em',
-          }}>
-            D<span style={{ color: 'white' }}>ALIMSS</span>
-          </div>
-          <div style={{ lineHeight: 1.15 }}>
-            <div style={{ fontWeight: 800, fontSize: '0.83rem', color: 'var(--maroon)', letterSpacing: '0.02em' }}>DALIMSS SUNBEAM</div>
-            <div style={{ fontWeight: 500, fontSize: '0.67rem', color: '#888', letterSpacing: '0.04em', textTransform: 'uppercase' }}>Educomp Ltd</div>
-          </div>
+        <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
+          <Image
+            src="/logo.png"
+            alt="DALIMSS Sunbeam Educomp Ltd"
+            width={200}
+            height={52}
+            style={{ objectFit: 'contain', height: '46px', width: 'auto' }}
+            priority
+          />
         </Link>
 
         {/* Desktop Nav */}
