@@ -2,101 +2,193 @@ import Link from 'next/link';
 import { Award, Users, School, MapPin, GraduationCap, BookOpen } from 'lucide-react';
 
 const stats = [
-  { icon: Award, value: '50+', label: 'Years Legacy' },
-  { icon: MapPin, value: '20+', label: 'Cities' },
-  { icon: School, value: '25+', label: 'Schools' },
-  { icon: Users, value: '15,000+', label: 'Students' },
-  { icon: GraduationCap, value: '18,000+', label: 'Alumni' },
-  { icon: BookOpen, value: '1,000+', label: 'Educators' },
+  { icon: Award,          value: '50+',    label: 'Years Legacy' },
+  { icon: MapPin,         value: '20+',    label: 'Cities' },
+  { icon: School,         value: '25+',    label: 'Schools' },
+  { icon: Users,          value: '15,000+',label: 'Students' },
+  { icon: GraduationCap,  value: '18,000+',label: 'Alumni' },
+  { icon: BookOpen,       value: '1,000+', label: 'Educators' },
 ];
 
 const values = [
-  { icon: '💡', title: 'Promote Creativity & Innovation', desc: 'Fostering out-of-the-box thinking in every learner.' },
-  { icon: '🏆', title: 'Committed to Excellence', desc: 'Setting the highest standards in academics and character.' },
-  { icon: '⚖️', title: 'Value Integrity & Honesty', desc: 'Building trust through transparent and ethical practices.' },
-  { icon: '🤝', title: 'Encourage Teamwork', desc: 'Cultivating collaboration and mutual respect.' },
-  { icon: '📚', title: 'Foster Lifelong Learning', desc: 'Inspiring a continuous journey of growth and discovery.' },
+  { icon: '💡', title: 'Creativity & Innovation',  desc: 'Fostering out-of-the-box thinking in every learner.' },
+  { icon: '🏆', title: 'Committed to Excellence',  desc: 'Setting the highest standards in academics and character.' },
+  { icon: '⚖️', title: 'Integrity & Honesty',       desc: 'Building trust through transparent and ethical practices.' },
+  { icon: '🤝', title: 'Encourage Teamwork',        desc: 'Cultivating collaboration and mutual respect.' },
+  { icon: '📚', title: 'Lifelong Learning',         desc: 'Inspiring a continuous journey of growth and discovery.' },
 ];
 
 const steps = [
-  { num: '01', title: 'Express Interest', desc: 'You are deeply interested in setting up a school on owned land.' },
-  { num: '02', title: 'Site Visit', desc: 'Site visit and feasibility study by DALIMSS Team.' },
-  { num: '03', title: 'Details Shared', desc: 'Team will share details of infrastructure, academics and mandatory clearances.' },
-  { num: '04', title: 'Document Review', desc: 'All documents will be cross examined for Agreement approval.' },
-  { num: '05', title: 'Agreement', desc: 'Signature of Agreement.' },
-  { num: '06', title: 'Pre-Launch Support', desc: 'Complete assistance and support in pre-launch — academic, administrative and functional.' },
-  { num: '07', title: 'Academic Session', desc: 'Beginning of Academic Session of school.' },
+  { num: '01', title: 'Express Interest',   desc: 'Deeply interested in setting up a school on owned land.' },
+  { num: '02', title: 'Site Visit',         desc: 'Site visit and feasibility study by DALIMSS team.' },
+  { num: '03', title: 'Details Shared',     desc: 'Infrastructure, academics and mandatory clearances.' },
+  { num: '04', title: 'Document Review',    desc: 'All documents cross-examined for Agreement approval.' },
+  { num: '05', title: 'Agreement',          desc: 'Signature of Agreement.' },
+  { num: '06', title: 'Pre-Launch Support', desc: 'Academic, administrative and functional assistance.' },
+  { num: '07', title: 'Academic Session',   desc: 'Beginning of the Academic Session of school.' },
 ];
 
 const preLaunch = [
-  { num: '01', title: 'Architectural Support', desc: 'Assistance from our architects in land survey, construction plan, government approvals.' },
-  { num: '02', title: 'Marketing & Branding', desc: 'Branding design for building, drop-downs, standee, sunboard, letter heads and other media.' },
-  { num: '03', title: 'Hiring Support', desc: 'Sharing and on-site supervision of hiring teaching and non-teaching staff.' },
-  { num: '04', title: 'SOPs & Procedures', desc: 'Sharing Standard Operating Procedure for teaching, administration and management.' },
-  { num: '05', title: 'Business Plans', desc: 'Sharing monthly, quarterly and annual business and academic plans.' },
+  { num: '01', title: 'Architectural Support', desc: 'Land survey, construction plan, government approvals.' },
+  { num: '02', title: 'Marketing & Branding',  desc: 'Building branding, signage, standee, letter heads & media.' },
+  { num: '03', title: 'Hiring Support',         desc: 'On-site supervision of hiring teaching & non-teaching staff.' },
+  { num: '04', title: 'SOPs & Procedures',      desc: 'Standard Operating Procedure for teaching and administration.' },
+  { num: '05', title: 'Business Plans',         desc: 'Monthly, quarterly and annual business and academic plans.' },
 ];
 
 const postLaunch = [
-  { num: '01', title: 'Staff Training', desc: 'Continuous training on KRAs and NEP 2020 along with evolving skill demands.' },
-  { num: '02', title: 'CBSE Curriculum', desc: 'Implementation of CBSE-based curriculum along with sports, co-curricular and hobby-based activities.' },
-  { num: '03', title: 'Quality Monitoring', desc: 'Monitoring quality of education and administration through regular audits and suggestive remediations.' },
-  { num: '04', title: 'CBSE Affiliation', desc: 'Complete assistance in compliance of CBSE regulations and bylaws for easy clearance.' },
-  { num: '05', title: 'IT & ERP Support', desc: 'The school follows IT and ERP software used at all other DALIMSS branches.' },
+  { num: '01', title: 'Staff Training',    desc: 'Continuous training on KRAs and NEP 2020 skill demands.' },
+  { num: '02', title: 'CBSE Curriculum',   desc: 'CBSE curriculum with sports, co-curricular and hobby activities.' },
+  { num: '03', title: 'Quality Monitoring',desc: 'Regular audits and suggestive remediations for quality.' },
+  { num: '04', title: 'CBSE Affiliation',  desc: 'Compliance assistance with CBSE regulations and bylaws.' },
+  { num: '05', title: 'IT & ERP Support',  desc: 'ERP software aligned with all DALIMSS branches.' },
 ];
 
 const awards = [
-  { title: 'Education World Award', desc: 'For The Best School In UP' },
-  { title: 'AcadElite Award 2025', desc: 'Excellence in Education' },
-  { title: 'No.1 School in Varanasi', desc: 'India Pre School Grand Jury Awards 2025-26' },
-  { title: 'Outstanding Day-cum-Boarding', desc: 'DALIMSS Sunbeam School & Hostel Rohania, Varanasi' },
-  { title: 'Education Resources & Technology', desc: 'Expo at ETTECHX' },
+  { icon: '🏅', title: 'Education World Award',          desc: 'Best School In UP' },
+  { icon: '🥇', title: 'AcadElite Award 2025',           desc: 'Excellence in Education' },
+  { icon: '⭐', title: 'No.1 School in Varanasi',        desc: 'India Pre School Grand Jury Awards 2025–26' },
+  { icon: '🏆', title: 'Outstanding Day-cum-Boarding',   desc: 'Dalimss Sunbeam School & Hostel, Rohania' },
+  { icon: '🎖️', title: 'Education Resources & Tech',     desc: 'Expo Recognition at ETTECHX' },
 ];
 
 export default function Home() {
   return (
     <main>
-      {/* HERO */}
-      <section style={{ backgroundColor: 'var(--maroon)' }}>
-        <div style={{ height: '4px', backgroundColor: 'var(--gold)' }} />
-        <div style={{ maxWidth: '80rem', margin: '0 auto', padding: '3rem 1rem' }}>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-            <div className="lg:col-span-2">
-              <p style={{ color: '#ddd', fontSize: '1rem', marginBottom: '0.5rem' }}>In an</p>
-              <h1 style={{ color: 'var(--gold)', fontWeight: 800, fontSize: 'clamp(2rem,5vw,3.5rem)', lineHeight: 1.1 }}>
-                evolving and volatile
+
+      {/* ═══ HERO ═══ */}
+      <section style={{
+        background: 'linear-gradient(135deg, #4a0f0f 0%, #7B1C1C 55%, #6b1515 100%)',
+        position: 'relative',
+        overflow: 'hidden',
+      }}>
+        {/* Subtle dot pattern */}
+        <div style={{
+          position: 'absolute', inset: 0,
+          backgroundImage: 'radial-gradient(circle, rgba(201,162,39,0.08) 1px, transparent 1px)',
+          backgroundSize: '28px 28px',
+        }} />
+        {/* Gold top bar */}
+        <div style={{ height: '4px', background: 'linear-gradient(90deg, var(--gold-dark), var(--gold-light), var(--gold-dark))' }} />
+
+        <div style={{ position: 'relative', maxWidth: '80rem', margin: '0 auto', padding: '3.5rem 1.5rem 3rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '3rem', alignItems: 'start' }}>
+
+            {/* Left: Headline */}
+            <div style={{ maxWidth: '680px' }}>
+              <div style={{
+                display: 'inline-block',
+                background: 'rgba(201,162,39,0.15)',
+                border: '1px solid rgba(201,162,39,0.35)',
+                borderRadius: '2rem',
+                padding: '0.3rem 1rem',
+                fontSize: '0.8rem',
+                fontWeight: 700,
+                color: 'var(--gold-light)',
+                letterSpacing: '0.08em',
+                textTransform: 'uppercase',
+                marginBottom: '1.25rem',
+              }}>
+                50+ Years of Educational Excellence
+              </div>
+
+              <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.1rem', marginBottom: '0.25rem', fontWeight: 500 }}>
+                In an
+              </p>
+              <h1 style={{
+                color: 'var(--gold)',
+                fontWeight: 900,
+                fontSize: 'clamp(2.2rem, 5.5vw, 3.75rem)',
+                lineHeight: 1.05,
+                letterSpacing: '-0.03em',
+              }}>
+                evolving &amp; volatile
               </h1>
-              <h2 style={{ color: 'white', fontWeight: 900, fontSize: 'clamp(2.5rem,6vw,4.5rem)', letterSpacing: '-1px', lineHeight: 1 }}>
+              <h2 style={{
+                color: 'white',
+                fontWeight: 900,
+                fontSize: 'clamp(3rem, 7.5vw, 5.5rem)',
+                letterSpacing: '-0.04em',
+                lineHeight: 0.95,
+                margin: '0.1rem 0',
+              }}>
                 WORLD
               </h2>
-              <p style={{ color: 'var(--gold)', fontWeight: 700, fontSize: 'clamp(1.5rem,3vw,2.5rem)', fontStyle: 'italic', lineHeight: 1.3, marginTop: '0.5rem' }}>
-                Explore growth
+              <p style={{
+                color: 'var(--gold-light)',
+                fontWeight: 700,
+                fontSize: 'clamp(1.4rem, 3vw, 2.2rem)',
+                fontStyle: 'italic',
+                lineHeight: 1.2,
+                marginTop: '0.5rem',
+              }}>
+                Explore growth <span style={{ color: 'white' }}>in</span> education
               </p>
-              <p style={{ color: 'white', fontSize: '1.25rem', fontStyle: 'italic' }}>in</p>
-              <p style={{ color: 'var(--gold)', fontWeight: 700, fontSize: 'clamp(1.5rem,3vw,2.5rem)', fontStyle: 'italic' }}>
-                education
+
+              <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '1rem', marginTop: '1.25rem', maxWidth: '480px', lineHeight: 1.7 }}>
+                DALIMSS Sunbeam — India's trusted school franchise network with 25+ schools, 15,000+ students and a 50-year legacy.
               </p>
-              <div className="flex flex-wrap gap-3 mt-8">
-                <Link href="/contact" className="px-6 py-3 rounded font-bold text-sm" style={{ backgroundColor: 'var(--gold)', color: 'white' }}>
+
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', marginTop: '2rem' }}>
+                <Link href="/contact" style={{
+                  background: 'linear-gradient(135deg, var(--gold), var(--gold-dark))',
+                  color: 'white',
+                  padding: '0.8rem 1.75rem',
+                  borderRadius: '0.5rem',
+                  fontWeight: 700,
+                  fontSize: '0.9rem',
+                  textDecoration: 'none',
+                  boxShadow: '0 4px 16px rgba(201,162,39,0.4)',
+                  letterSpacing: '0.01em',
+                }}>
                   Apply For Franchise →
                 </Link>
-                <Link href="/services/franchise" className="px-6 py-3 rounded font-bold text-sm border-2" style={{ borderColor: 'white', color: 'white' }}>
+                <Link href="/services/franchise" style={{
+                  border: '2px solid rgba(255,255,255,0.4)',
+                  color: 'white',
+                  padding: '0.8rem 1.75rem',
+                  borderRadius: '0.5rem',
+                  fontWeight: 600,
+                  fontSize: '0.9rem',
+                  textDecoration: 'none',
+                  backdropFilter: 'blur(4px)',
+                  background: 'rgba(255,255,255,0.06)',
+                }}>
                   Download Brochure
                 </Link>
               </div>
-              <div className="flex flex-wrap gap-6 mt-8" style={{ color: '#ddd', fontSize: '0.875rem' }}>
+
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', marginTop: '1.75rem', color: 'rgba(255,255,255,0.55)', fontSize: '0.875rem' }}>
                 <span>📧 info@dalimss.com</span>
                 <span>📞 9277802103</span>
               </div>
             </div>
 
-            {/* Partner With Us Form */}
-            <div className="rounded-lg overflow-hidden shadow-2xl" style={{ backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(201,162,39,0.3)' }}>
-              <div className="text-center py-3 px-4 font-bold text-sm tracking-widest" style={{ backgroundColor: 'var(--gold)', color: 'white' }}>
-                PARTNER WITH US
+            {/* Right: Partner Form */}
+            <div style={{
+              background: 'rgba(255,255,255,0.06)',
+              backdropFilter: 'blur(12px)',
+              border: '1px solid rgba(201,162,39,0.25)',
+              borderRadius: '1.25rem',
+              overflow: 'hidden',
+              boxShadow: '0 24px 64px rgba(0,0,0,0.35)',
+              maxWidth: '420px',
+            }}>
+              <div style={{
+                background: 'linear-gradient(135deg, var(--gold-dark), var(--gold))',
+                padding: '1rem 1.5rem',
+                textAlign: 'center',
+                fontWeight: 800,
+                fontSize: '0.85rem',
+                color: 'white',
+                letterSpacing: '0.1em',
+                textTransform: 'uppercase',
+              }}>
+                Partner With Us
               </div>
-              <form className="p-4 space-y-3" action="/contact">
+              <form style={{ padding: '1.25rem', display: 'flex', flexDirection: 'column', gap: '0.7rem' }} action="/contact">
                 {[
-                  { label: 'Name', type: 'text', name: 'name' },
+                  { label: 'Full Name', type: 'text', name: 'name' },
                   { label: 'E-Mail', type: 'email', name: 'email' },
                   { label: 'Contact No.', type: 'tel', name: 'phone' },
                   { label: 'School Type', type: 'text', name: 'school_type' },
@@ -108,188 +200,358 @@ export default function Home() {
                     type={field.type}
                     name={field.name}
                     placeholder={field.label}
-                    className="w-full px-3 py-2 text-sm rounded outline-none"
-                    style={{ backgroundColor: 'rgba(201,162,39,0.15)', border: '1px solid rgba(201,162,39,0.4)', color: 'white' }}
+                    style={{
+                      width: '100%',
+                      padding: '0.65rem 0.9rem',
+                      fontSize: '0.875rem',
+                      borderRadius: '0.5rem',
+                      border: '1px solid rgba(201,162,39,0.3)',
+                      background: 'rgba(255,255,255,0.08)',
+                      color: 'white',
+                      outline: 'none',
+                      fontFamily: 'inherit',
+                    }}
                   />
                 ))}
                 <textarea
                   name="detail"
-                  placeholder="Detail"
+                  placeholder="Your message / detail"
                   rows={3}
-                  className="w-full px-3 py-2 text-sm rounded outline-none resize-none"
-                  style={{ backgroundColor: 'rgba(201,162,39,0.15)', border: '1px solid rgba(201,162,39,0.4)', color: 'white' }}
+                  style={{
+                    width: '100%',
+                    padding: '0.65rem 0.9rem',
+                    fontSize: '0.875rem',
+                    borderRadius: '0.5rem',
+                    border: '1px solid rgba(201,162,39,0.3)',
+                    background: 'rgba(255,255,255,0.08)',
+                    color: 'white',
+                    outline: 'none',
+                    resize: 'none',
+                    fontFamily: 'inherit',
+                  }}
                 />
-                <div className="flex gap-2">
-                  <button type="submit" className="flex-1 py-2 text-sm font-bold rounded" style={{ backgroundColor: 'var(--gold)', color: 'white' }}>
+                <div style={{ display: 'flex', gap: '0.6rem' }}>
+                  <button type="submit" style={{
+                    flex: 1, padding: '0.75rem',
+                    background: 'linear-gradient(135deg, var(--gold), var(--gold-dark))',
+                    color: 'white', fontWeight: 700, fontSize: '0.875rem',
+                    borderRadius: '0.5rem', border: 'none', cursor: 'pointer',
+                    fontFamily: 'inherit',
+                  }}>
                     Submit
                   </button>
-                  <button type="reset" className="flex-1 py-2 text-sm font-bold rounded" style={{ backgroundColor: 'rgba(255,255,255,0.1)', color: 'white', border: '1px solid rgba(255,255,255,0.2)' }}>
+                  <button type="reset" style={{
+                    flex: 1, padding: '0.75rem',
+                    background: 'rgba(255,255,255,0.08)',
+                    color: 'rgba(255,255,255,0.7)', fontWeight: 600, fontSize: '0.875rem',
+                    borderRadius: '0.5rem', border: '1px solid rgba(255,255,255,0.15)', cursor: 'pointer',
+                    fontFamily: 'inherit',
+                  }}>
                     Reset
                   </button>
                 </div>
               </form>
             </div>
+
           </div>
         </div>
       </section>
 
-      {/* WHY CHOOSE DALIMSS */}
-      <section style={{ backgroundColor: 'var(--cream)' }} className="py-16 px-4">
-        <div className="max-w-6xl mx-auto">
+      {/* ═══ STATS STRIP ═══ */}
+      <section style={{ background: 'white', padding: '3.5rem 1.5rem' }}>
+        <div style={{ maxWidth: '72rem', margin: '0 auto' }}>
           <h2 className="section-heading">
-            Why Choose <span style={{ color: 'var(--maroon)' }}>Dalimss Sunbeam</span> Schools?
+            Why Choose <span style={{ color: 'var(--gold)' }}>DALIMSS Sunbeam</span>?
           </h2>
-          <p className="section-subheading">A legacy of excellence across India</p>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+          <p className="section-subheading">A legacy of excellence — shaping education across India</p>
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
+            gap: '1rem',
+            marginTop: '0.5rem',
+          }}>
             {stats.map(({ icon: Icon, value, label }) => (
-              <div key={label} className="flex flex-col items-center p-4 rounded-xl shadow-sm text-center" style={{ backgroundColor: 'white', border: '2px solid #e8e8e8' }}>
-                <Icon size={28} style={{ color: 'var(--maroon)', marginBottom: '0.5rem' }} />
-                <div style={{ fontWeight: 800, fontSize: '1.5rem', color: 'var(--maroon)' }}>{value}</div>
-                <div style={{ fontSize: '0.75rem', color: '#666', fontWeight: 600 }}>{label}</div>
+              <div key={label} style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                padding: '1.5rem 1rem',
+                borderRadius: '1rem',
+                background: 'white',
+                border: '1.5px solid #ebebeb',
+                boxShadow: '0 2px 12px rgba(0,0,0,0.05)',
+                textAlign: 'center',
+                transition: 'transform 0.2s, box-shadow 0.2s',
+              }} className="card">
+                <div style={{
+                  width: '48px', height: '48px', borderRadius: '12px',
+                  background: 'linear-gradient(135deg, #fdf4dc, #ffeeba)',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  marginBottom: '0.75rem',
+                }}>
+                  <Icon size={22} style={{ color: 'var(--maroon)' }} />
+                </div>
+                <div style={{ fontWeight: 900, fontSize: '1.6rem', color: 'var(--maroon)', lineHeight: 1 }}>{value}</div>
+                <div style={{ fontSize: '0.75rem', color: '#777', fontWeight: 600, marginTop: '0.3rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{label}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ALL YOU NEED */}
-      <section className="py-16 px-4" style={{ backgroundColor: 'white' }}>
-        <div className="max-w-5xl mx-auto text-center">
-          <h2 className="section-heading">
-            All You <span style={{ color: 'var(--gold)' }}>NEED</span> To Get <span style={{ color: 'var(--maroon)' }}>STARTED</span>
-          </h2>
+      {/* ═══ REQUIREMENTS ═══ */}
+      <section style={{ background: 'var(--cream)', padding: '4rem 1.5rem' }}>
+        <div style={{ maxWidth: '64rem', margin: '0 auto', textAlign: 'center' }}>
+          <h2 className="section-heading">All You <span style={{ color: 'var(--gold)' }}>Need</span> to Get Started</h2>
           <p className="section-subheading">Simple requirements to begin your journey with us</p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.5rem', marginTop: '0.5rem' }}>
             {[
-              { icon: '🏠', title: '1.5 – 2 Acre Land', desc: 'Own or lease land in a suitable location, OR an existing school you wish to upgrade.' },
-              { icon: '💰', title: '2 Cr to 8 Cr Investment', desc: 'To invest in infrastructure development and school setup.' },
-              { icon: '🌱', title: 'Passion to Grow', desc: 'A passion to grow and upscale in the education sector.' },
+              { icon: '🏠', title: '1.5 – 2 Acre Land',       desc: 'Own or lease land in a suitable location, or an existing school you wish to upgrade.' },
+              { icon: '💰', title: '₹2 Cr – ₹8 Cr Investment', desc: 'To invest in infrastructure development and complete school setup.' },
+              { icon: '🌱', title: 'Passion to Grow',           desc: 'A genuine passion to grow and upscale in the education sector.' },
             ].map((item) => (
-              <div key={item.title} className="p-6 rounded-2xl text-center shadow-md" style={{ backgroundColor: 'var(--maroon)', color: 'white' }}>
-                <div style={{ fontSize: '2.5rem', marginBottom: '0.75rem' }}>{item.icon}</div>
-                <h3 style={{ fontWeight: 700, fontSize: '1rem', color: 'var(--gold)', marginBottom: '0.5rem' }}>{item.title}</h3>
-                <p style={{ fontSize: '0.875rem', color: '#ddd', lineHeight: 1.6 }}>{item.desc}</p>
+              <div key={item.title} style={{
+                padding: '2rem 1.5rem',
+                borderRadius: '1.25rem',
+                background: 'linear-gradient(145deg, var(--maroon-dark), var(--maroon))',
+                color: 'white',
+                boxShadow: '0 8px 32px rgba(123,28,28,0.25)',
+                textAlign: 'center',
+              }}>
+                <div style={{ fontSize: '2.75rem', marginBottom: '1rem' }}>{item.icon}</div>
+                <h3 style={{ fontWeight: 800, fontSize: '1.05rem', color: 'var(--gold-light)', marginBottom: '0.6rem', letterSpacing: '-0.01em' }}>{item.title}</h3>
+                <p style={{ fontSize: '0.875rem', color: 'rgba(255,255,255,0.75)', lineHeight: 1.7 }}>{item.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* VALUES */}
-      <section style={{ backgroundColor: 'var(--cream)' }} className="py-16 px-4">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="section-heading">You Have Made The Right ✅ Choice</h2>
-          <p className="section-subheading" style={{ fontStyle: 'italic' }}>Because You …</p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+      {/* ═══ VALUES ═══ */}
+      <section style={{ background: 'white', padding: '4rem 1.5rem' }}>
+        <div style={{ maxWidth: '72rem', margin: '0 auto' }}>
+          <h2 className="section-heading">You Made the Right Choice ✅</h2>
+          <p className="section-subheading" style={{ fontStyle: 'italic' }}>Because you believe in…</p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(175px, 1fr))', gap: '1rem', marginTop: '0.5rem' }}>
             {values.map((v) => (
-              <div key={v.title} className="p-5 rounded-xl text-center shadow-sm" style={{ backgroundColor: 'white', border: '2px solid #e0e0e0' }}>
-                <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>{v.icon}</div>
-                <h4 style={{ fontWeight: 700, fontSize: '0.85rem', color: 'var(--maroon)', marginBottom: '0.4rem' }}>{v.title}</h4>
-                <p style={{ fontSize: '0.75rem', color: '#666', lineHeight: 1.5 }}>{v.desc}</p>
+              <div key={v.title} style={{
+                padding: '1.75rem 1.25rem',
+                borderRadius: '1rem',
+                background: 'white',
+                border: '1.5px solid #ebebeb',
+                textAlign: 'center',
+                boxShadow: '0 2px 12px rgba(0,0,0,0.05)',
+                transition: 'transform 0.2s, box-shadow 0.2s',
+              }} className="card">
+                <div style={{
+                  fontSize: '2rem',
+                  width: '56px', height: '56px',
+                  background: 'linear-gradient(135deg, #fdf4dc, #ffeeba)',
+                  borderRadius: '50%',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  margin: '0 auto 0.85rem',
+                }}>{v.icon}</div>
+                <h4 style={{ fontWeight: 700, fontSize: '0.875rem', color: 'var(--maroon)', marginBottom: '0.4rem', lineHeight: 1.3 }}>{v.title}</h4>
+                <p style={{ fontSize: '0.78rem', color: '#666', lineHeight: 1.6 }}>{v.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* AWARDS */}
-      <section className="py-16 px-4" style={{ backgroundColor: 'white' }}>
-        <div className="max-w-6xl mx-auto">
-          <h2 className="section-heading">Our Awards and Achievements</h2>
-          <p className="section-subheading">Recognition that validates our commitment to excellence</p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+      {/* ═══ AWARDS ═══ */}
+      <section style={{ background: 'linear-gradient(135deg, #4a0f0f 0%, var(--maroon) 100%)', padding: '4rem 1.5rem', position: 'relative', overflow: 'hidden' }}>
+        <div style={{
+          position: 'absolute', inset: 0,
+          backgroundImage: 'radial-gradient(circle, rgba(201,162,39,0.07) 1px, transparent 1px)',
+          backgroundSize: '24px 24px',
+        }} />
+        <div style={{ position: 'relative', maxWidth: '72rem', margin: '0 auto' }}>
+          <h2 className="section-heading" style={{ color: 'white' }}>
+            Awards &amp; Achievements
+          </h2>
+          <p className="section-subheading" style={{ color: 'rgba(255,255,255,0.6)' }}>Recognition that validates our commitment to excellence</p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(175px, 1fr))', gap: '1rem', marginTop: '0.5rem' }}>
             {awards.map((a) => (
-              <div key={a.title} className="p-5 rounded-xl text-center shadow-md" style={{ backgroundColor: 'var(--maroon)', color: 'white' }}>
-                <div style={{ fontSize: '2rem', marginBottom: '0.75rem' }}>🏆</div>
-                <h4 style={{ fontWeight: 700, fontSize: '0.85rem', color: 'var(--gold)', marginBottom: '0.4rem', fontStyle: 'italic' }}>{a.title}</h4>
-                <p style={{ fontSize: '0.75rem', color: '#ddd', lineHeight: 1.5, fontStyle: 'italic' }}>{a.desc}</p>
+              <div key={a.title} style={{
+                padding: '1.75rem 1.25rem',
+                borderRadius: '1rem',
+                background: 'rgba(255,255,255,0.06)',
+                border: '1px solid rgba(201,162,39,0.25)',
+                textAlign: 'center',
+                backdropFilter: 'blur(8px)',
+              }}>
+                <div style={{ fontSize: '2rem', marginBottom: '0.75rem' }}>{a.icon}</div>
+                <h4 style={{ fontWeight: 700, fontSize: '0.85rem', color: 'var(--gold-light)', marginBottom: '0.4rem', lineHeight: 1.35 }}>{a.title}</h4>
+                <p style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.5, fontStyle: 'italic' }}>{a.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 7 STEPS */}
-      <section style={{ backgroundColor: '#f9f9f9' }} className="py-16 px-4">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="section-heading">Coming Together</h2>
-          <p className="section-subheading font-bold">Stages In The Process</p>
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-4 mt-4">
+      {/* ═══ 7-STEP PROCESS ═══ */}
+      <section style={{ background: '#f8f8f8', padding: '4rem 1.5rem' }}>
+        <div style={{ maxWidth: '72rem', margin: '0 auto' }}>
+          <h2 className="section-heading">Our Partnership Process</h2>
+          <p className="section-subheading">Simple, transparent stages to launch your DALIMSS Sunbeam school</p>
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))',
+            gap: '1rem',
+            marginTop: '1rem',
+          }}>
             {steps.map((step, i) => (
-              <div key={step.num} className="flex flex-col items-center text-center">
-                <div
-                  className="w-14 h-14 rounded-full flex items-center justify-center font-bold text-lg shadow-md mb-3"
-                  style={{ backgroundColor: i % 2 === 0 ? 'var(--gold)' : 'var(--maroon)', color: 'white', border: '3px solid white' }}
-                >
+              <div key={step.num} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', padding: '0.5rem' }}>
+                <div style={{
+                  width: '54px', height: '54px',
+                  borderRadius: '50%',
+                  background: i % 2 === 0
+                    ? 'linear-gradient(135deg, var(--gold-dark), var(--gold))'
+                    : 'linear-gradient(135deg, var(--maroon-dark), var(--maroon))',
+                  color: 'white',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  fontWeight: 800, fontSize: '1.1rem',
+                  boxShadow: i % 2 === 0 ? '0 4px 16px rgba(201,162,39,0.35)' : '0 4px 16px rgba(123,28,28,0.3)',
+                  flexShrink: 0,
+                  marginBottom: '0.75rem',
+                }}>
                   {step.num}
                 </div>
-                <h4 style={{ fontWeight: 700, fontSize: '0.75rem', color: 'var(--maroon)', marginBottom: '0.25rem' }}>{step.title}</h4>
-                <p style={{ fontSize: '0.65rem', color: '#666', lineHeight: 1.4 }}>{step.desc}</p>
+                <h4 style={{ fontWeight: 700, fontSize: '0.78rem', color: 'var(--maroon)', marginBottom: '0.3rem', lineHeight: 1.3 }}>{step.title}</h4>
+                <p style={{ fontSize: '0.68rem', color: '#666', lineHeight: 1.5 }}>{step.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* SUPPORT ROADMAP */}
-      <section className="py-16 px-4" style={{ backgroundColor: 'white' }}>
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      {/* ═══ SUPPORT ROADMAP ═══ */}
+      <section style={{ background: 'white', padding: '4rem 1.5rem' }}>
+        <div style={{ maxWidth: '72rem', margin: '0 auto' }}>
+          <h2 className="section-heading">Support Service Roadmap</h2>
+          <p className="section-subheading">End-to-end support — from groundbreaking to growth</p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2.5rem', marginTop: '1rem' }}>
+
+            {/* PRE LAUNCH */}
             <div>
-              <h3 style={{ fontWeight: 800, fontSize: '1.4rem', color: 'var(--maroon)', marginBottom: '0.5rem' }}>Support Service Roadmap</h3>
-              <p style={{ color: 'var(--gold)', fontWeight: 700, marginBottom: '1.5rem', fontSize: '0.9rem' }}>PRE LAUNCH — Smooth launching ground</p>
-              <div className="space-y-4">
+              <div style={{
+                display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
+                background: 'linear-gradient(135deg, #fdf4dc, #ffeeba)',
+                padding: '0.5rem 1.1rem',
+                borderRadius: '2rem',
+                marginBottom: '1.25rem',
+              }}>
+                <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--gold-dark)', textTransform: 'uppercase', letterSpacing: '0.07em' }}>
+                  🚀 Pre Launch
+                </span>
+              </div>
+              <p style={{ fontSize: '0.8rem', color: '#888', marginBottom: '1.25rem', fontStyle: 'italic' }}>Smooth launching ground</p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
                 {preLaunch.map((item) => (
-                  <div key={item.num} className="flex gap-3">
-                    <div className="w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0" style={{ backgroundColor: 'var(--gold)', color: 'white' }}>
+                  <div key={item.num} style={{ display: 'flex', gap: '0.85rem', alignItems: 'flex-start' }}>
+                    <div style={{
+                      width: '34px', height: '34px', borderRadius: '50%', flexShrink: 0,
+                      background: 'linear-gradient(135deg, var(--gold-dark), var(--gold))',
+                      color: 'white', fontWeight: 800, fontSize: '0.75rem',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    }}>
                       {item.num}
                     </div>
                     <div>
-                      <h4 style={{ fontWeight: 700, fontSize: '0.9rem', color: 'var(--maroon)' }}>{item.title}</h4>
-                      <p style={{ fontSize: '0.8rem', color: '#555', lineHeight: 1.5 }}>{item.desc}</p>
+                      <div style={{ fontWeight: 700, fontSize: '0.875rem', color: 'var(--maroon)', lineHeight: 1.3 }}>{item.title}</div>
+                      <div style={{ fontSize: '0.78rem', color: '#666', lineHeight: 1.55, marginTop: '0.2rem' }}>{item.desc}</div>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
+
+            {/* POST LAUNCH */}
             <div>
-              <h3 style={{ fontWeight: 800, fontSize: '1.4rem', color: 'var(--maroon)', marginBottom: '0.5rem' }}>Support Service Roadmap</h3>
-              <p style={{ color: '#16a34a', fontWeight: 700, marginBottom: '1.5rem', fontSize: '0.9rem' }}>POST LAUNCH — Robust growth plan</p>
-              <div className="space-y-4">
+              <div style={{
+                display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
+                background: 'linear-gradient(135deg, #d1fae5, #a7f3d0)',
+                padding: '0.5rem 1.1rem',
+                borderRadius: '2rem',
+                marginBottom: '1.25rem',
+              }}>
+                <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#065f46', textTransform: 'uppercase', letterSpacing: '0.07em' }}>
+                  🌱 Post Launch
+                </span>
+              </div>
+              <p style={{ fontSize: '0.8rem', color: '#888', marginBottom: '1.25rem', fontStyle: 'italic' }}>Robust growth plan</p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
                 {postLaunch.map((item) => (
-                  <div key={item.num} className="flex gap-3">
-                    <div className="w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0" style={{ backgroundColor: 'var(--maroon)', color: 'white' }}>
+                  <div key={item.num} style={{ display: 'flex', gap: '0.85rem', alignItems: 'flex-start' }}>
+                    <div style={{
+                      width: '34px', height: '34px', borderRadius: '50%', flexShrink: 0,
+                      background: 'linear-gradient(135deg, var(--maroon-dark), var(--maroon))',
+                      color: 'white', fontWeight: 800, fontSize: '0.75rem',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    }}>
                       {item.num}
                     </div>
                     <div>
-                      <h4 style={{ fontWeight: 700, fontSize: '0.9rem', color: 'var(--maroon)' }}>{item.title}</h4>
-                      <p style={{ fontSize: '0.8rem', color: '#555', lineHeight: 1.5 }}>{item.desc}</p>
+                      <div style={{ fontWeight: 700, fontSize: '0.875rem', color: 'var(--maroon)', lineHeight: 1.3 }}>{item.title}</div>
+                      <div style={{ fontSize: '0.78rem', color: '#666', lineHeight: 1.55, marginTop: '0.2rem' }}>{item.desc}</div>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
+
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-14 px-4 text-center" style={{ backgroundColor: 'var(--maroon)' }}>
-        <h2 style={{ color: 'white', fontWeight: 800, fontSize: 'clamp(1.5rem,4vw,2.5rem)', marginBottom: '0.75rem' }}>
-          Ready to Explore Growth in Education?
-        </h2>
-        <p style={{ color: '#ddd', maxWidth: '600px', margin: '0 auto 2rem', lineHeight: 1.7 }}>
-          Join the DALIMSS Sunbeam family and be part of a 50+ year legacy of transforming education across India.
-        </p>
-        <div className="flex flex-wrap gap-4 justify-center">
-          <Link href="/contact" className="px-8 py-3 rounded font-bold" style={{ backgroundColor: 'var(--gold)', color: 'white' }}>
-            Partner With Us
-          </Link>
-          <Link href="/associate-schools" className="px-8 py-3 rounded font-bold border-2" style={{ borderColor: 'white', color: 'white' }}>
-            View Our Schools
-          </Link>
+      {/* ═══ CTA ═══ */}
+      <section style={{
+        background: 'linear-gradient(135deg, var(--maroon-dark) 0%, var(--maroon) 100%)',
+        padding: '4.5rem 1.5rem',
+        textAlign: 'center',
+        position: 'relative',
+        overflow: 'hidden',
+      }}>
+        <div style={{
+          position: 'absolute', inset: 0,
+          backgroundImage: 'radial-gradient(circle, rgba(201,162,39,0.06) 1px, transparent 1px)',
+          backgroundSize: '24px 24px',
+        }} />
+        <div style={{ position: 'relative', maxWidth: '600px', margin: '0 auto' }}>
+          <h2 style={{
+            color: 'white', fontWeight: 900,
+            fontSize: 'clamp(1.6rem, 4vw, 2.5rem)',
+            letterSpacing: '-0.03em', lineHeight: 1.15,
+            marginBottom: '0.85rem',
+          }}>
+            Ready to Explore Growth<br />in Education?
+          </h2>
+          <p style={{ color: 'rgba(255,255,255,0.65)', lineHeight: 1.75, marginBottom: '2rem', fontSize: '1rem' }}>
+            Join the DALIMSS Sunbeam family and be part of a 50+ year legacy transforming education across India.
+          </p>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.85rem', justifyContent: 'center' }}>
+            <Link href="/contact" style={{
+              background: 'linear-gradient(135deg, var(--gold), var(--gold-dark))',
+              color: 'white', padding: '0.875rem 2rem',
+              borderRadius: '0.5rem', fontWeight: 700, fontSize: '0.9rem',
+              textDecoration: 'none', letterSpacing: '0.01em',
+              boxShadow: '0 4px 16px rgba(201,162,39,0.4)',
+            }}>
+              Partner With Us
+            </Link>
+            <Link href="/associate-schools" style={{
+              border: '2px solid rgba(255,255,255,0.35)',
+              color: 'white', padding: '0.875rem 2rem',
+              borderRadius: '0.5rem', fontWeight: 600, fontSize: '0.9rem',
+              textDecoration: 'none', background: 'rgba(255,255,255,0.06)',
+            }}>
+              View Our Schools
+            </Link>
+          </div>
         </div>
       </section>
+
     </main>
   );
 }

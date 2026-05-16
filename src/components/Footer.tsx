@@ -3,25 +3,48 @@ import { Mail, Phone } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer style={{ backgroundColor: 'var(--maroon)', color: 'white' }}>
-      <div style={{ maxWidth: '80rem', margin: '0 auto', padding: '3rem 1rem' }}>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <footer style={{
+      background: 'linear-gradient(160deg, #3e0e0e 0%, var(--maroon-dark) 50%, #4a1010 100%)',
+      color: 'white',
+    }}>
+      <div style={{ maxWidth: '80rem', margin: '0 auto', padding: '3.5rem 1.5rem 2rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(190px, 1fr))', gap: '2.5rem' }}>
+
           {/* Brand */}
           <div>
-            <div className="mb-4">
-              <div style={{ color: 'var(--gold)', fontWeight: 800, fontSize: '1.3rem' }}>DALIMSS SUNBEAM</div>
-              <div style={{ color: '#ddd', fontSize: '0.85rem' }}>EDUCOMP LIMITED</div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.625rem', marginBottom: '1rem' }}>
+              <div style={{
+                background: 'linear-gradient(135deg, var(--gold-dark), var(--gold))',
+                color: 'white',
+                fontWeight: 900, fontSize: '1rem',
+                padding: '6px 10px', borderRadius: '8px', lineHeight: 1.2,
+              }}>
+                DALIMSS
+              </div>
+              <div style={{ lineHeight: 1.15 }}>
+                <div style={{ fontWeight: 800, fontSize: '0.8rem', color: 'white' }}>SUNBEAM</div>
+                <div style={{ fontWeight: 500, fontSize: '0.65rem', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Educomp Ltd</div>
+              </div>
             </div>
-            <p style={{ color: '#ddd', fontSize: '0.875rem', lineHeight: 1.7 }}>
+            <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.82rem', lineHeight: 1.8, marginBottom: '1.25rem' }}>
               Exploring growth in education in an evolving and volatile world. 50+ years of legacy, 25+ schools, 15,000+ students.
             </p>
-            <div className="flex gap-2 mt-4 flex-wrap">
+            <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
               {['Facebook', 'Instagram', 'YouTube', 'LinkedIn'].map((name) => (
                 <a
                   key={name}
                   href="#"
-                  className="text-xs font-semibold px-2 py-1 rounded"
-                  style={{ backgroundColor: 'rgba(201,162,39,0.2)', color: '#C9A227' }}
+                  style={{
+                    fontSize: '0.7rem', fontWeight: 700,
+                    padding: '0.25rem 0.6rem',
+                    borderRadius: '0.3rem',
+                    background: 'rgba(201,162,39,0.15)',
+                    border: '1px solid rgba(201,162,39,0.25)',
+                    color: 'var(--gold-light)',
+                    textDecoration: 'none',
+                    letterSpacing: '0.03em',
+                    transition: 'background 0.15s',
+                  }}
                 >
                   {name}
                 </a>
@@ -31,8 +54,10 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 style={{ color: 'var(--gold)', fontWeight: 700, marginBottom: '1rem' }}>Quick Links</h4>
-            <ul className="space-y-2">
+            <h4 style={{ color: 'var(--gold-light)', fontWeight: 800, fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '1.1rem' }}>
+              Quick Links
+            </h4>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
               {[
                 { label: 'Home', href: '/' },
                 { label: 'About Us', href: '/about-us' },
@@ -42,12 +67,14 @@ export default function Footer() {
                 { label: 'Contact Us', href: '/contact' },
               ].map((link) => (
                 <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    style={{ color: '#ddd', fontSize: '0.875rem', textDecoration: 'none' }}
-                    className="hover:text-white transition-colors"
-                  >
-                    → {link.label}
+                  <Link href={link.href} style={{
+                    color: 'rgba(255,255,255,0.6)',
+                    fontSize: '0.85rem',
+                    textDecoration: 'none',
+                    display: 'flex', alignItems: 'center', gap: '0.4rem',
+                    transition: 'color 0.15s',
+                  }}>
+                    <span style={{ color: 'var(--gold)', fontSize: '0.7rem' }}>›</span> {link.label}
                   </Link>
                 </li>
               ))}
@@ -56,8 +83,10 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h4 style={{ color: 'var(--gold)', fontWeight: 700, marginBottom: '1rem' }}>Our Services</h4>
-            <ul className="space-y-2">
+            <h4 style={{ color: 'var(--gold-light)', fontWeight: 800, fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '1.1rem' }}>
+              Our Services
+            </h4>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
               {[
                 { label: 'School Franchise', href: '/services/franchise' },
                 { label: 'Curriculum & Setup', href: '/services/curriculum' },
@@ -66,12 +95,14 @@ export default function Footer() {
                 { label: 'News & Events', href: '/news-events' },
               ].map((link) => (
                 <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    style={{ color: '#ddd', fontSize: '0.875rem', textDecoration: 'none' }}
-                    className="hover:text-white transition-colors"
-                  >
-                    → {link.label}
+                  <Link href={link.href} style={{
+                    color: 'rgba(255,255,255,0.6)',
+                    fontSize: '0.85rem',
+                    textDecoration: 'none',
+                    display: 'flex', alignItems: 'center', gap: '0.4rem',
+                    transition: 'color 0.15s',
+                  }}>
+                    <span style={{ color: 'var(--gold)', fontSize: '0.7rem' }}>›</span> {link.label}
                   </Link>
                 </li>
               ))}
@@ -80,38 +111,61 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 style={{ color: 'var(--gold)', fontWeight: 700, marginBottom: '1rem' }}>Contact Us</h4>
-            <div className="space-y-3">
-              <div className="flex items-center gap-2">
-                <Mail size={16} style={{ color: 'var(--gold)', flexShrink: 0 }} />
-                <a href="mailto:info@dalimss.com" style={{ color: '#ddd', fontSize: '0.875rem' }}>
-                  info@dalimss.com
-                </a>
-              </div>
-              <div className="flex items-center gap-2">
-                <Phone size={16} style={{ color: 'var(--gold)', flexShrink: 0 }} />
-                <a href="tel:9277802103" style={{ color: '#ddd', fontSize: '0.875rem' }}>
-                  9277802103
-                </a>
-              </div>
-              <div className="mt-4">
-                <Link
-                  href="/contact"
-                  className="inline-block px-4 py-2 rounded text-sm font-semibold transition-colors"
-                  style={{ backgroundColor: 'var(--gold)', color: 'white' }}
-                >
-                  Partner With Us
+            <h4 style={{ color: 'var(--gold-light)', fontWeight: 800, fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '1.1rem' }}>
+              Get In Touch
+            </h4>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+              <a href="mailto:info@dalimss.com" style={{
+                display: 'flex', alignItems: 'center', gap: '0.6rem',
+                color: 'rgba(255,255,255,0.6)', fontSize: '0.85rem', textDecoration: 'none',
+              }}>
+                <Mail size={14} style={{ color: 'var(--gold)', flexShrink: 0 }} />
+                info@dalimss.com
+              </a>
+              <a href="tel:9277802103" style={{
+                display: 'flex', alignItems: 'center', gap: '0.6rem',
+                color: 'rgba(255,255,255,0.6)', fontSize: '0.85rem', textDecoration: 'none',
+              }}>
+                <Phone size={14} style={{ color: 'var(--gold)', flexShrink: 0 }} />
+                9277802103
+              </a>
+              <div style={{ marginTop: '0.5rem' }}>
+                <Link href="/contact" style={{
+                  display: 'inline-block',
+                  background: 'linear-gradient(135deg, var(--gold), var(--gold-dark))',
+                  color: 'white',
+                  padding: '0.6rem 1.25rem',
+                  borderRadius: '0.5rem',
+                  fontSize: '0.82rem', fontWeight: 700,
+                  textDecoration: 'none',
+                  letterSpacing: '0.01em',
+                  boxShadow: '0 3px 10px rgba(201,162,39,0.3)',
+                }}>
+                  Partner With Us →
                 </Link>
               </div>
             </div>
           </div>
+
         </div>
 
-        <div
-          className="mt-8 pt-6 text-center"
-          style={{ borderTop: '1px solid rgba(255,255,255,0.15)', color: '#aaa', fontSize: '0.8rem' }}
-        >
-          © {new Date().getFullYear()} DALIMSS Sunbeam Educomp Limited. All rights reserved.
+        {/* Bottom bar */}
+        <div style={{
+          marginTop: '2.5rem',
+          paddingTop: '1.25rem',
+          borderTop: '1px solid rgba(255,255,255,0.1)',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          gap: '0.5rem',
+        }}>
+          <p style={{ color: 'rgba(255,255,255,0.35)', fontSize: '0.78rem' }}>
+            © {new Date().getFullYear()} DALIMSS Sunbeam Educomp Limited. All rights reserved.
+          </p>
+          <p style={{ color: 'rgba(255,255,255,0.25)', fontSize: '0.75rem' }}>
+            Varanasi, Uttar Pradesh, India
+          </p>
         </div>
       </div>
     </footer>
