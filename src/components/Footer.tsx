@@ -19,7 +19,7 @@ export default function Footer() {
                 alt="DALIMSS Sunbeam Educomp Ltd"
                 width={180}
                 height={48}
-                style={{ objectFit: 'contain', height: '44px', width: 'auto', filter: 'brightness(0) invert(1)' }}
+                style={{ objectFit: 'contain', height: '44px', width: 'auto' }}
               />
             </div>
             <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.82rem', lineHeight: 1.8, marginBottom: '1.25rem' }}>
