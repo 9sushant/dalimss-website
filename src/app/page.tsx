@@ -130,19 +130,23 @@ export default function Home() {
               </p>
 
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', marginTop: '2rem' }}>
-                <Link href="/contact" style={{
-                  background: 'linear-gradient(135deg, var(--gold), var(--gold-dark))',
-                  color: 'white',
-                  padding: '0.8rem 1.75rem',
-                  borderRadius: '0.5rem',
-                  fontWeight: 700,
-                  fontSize: '0.9rem',
-                  textDecoration: 'none',
-                  boxShadow: '0 4px 16px rgba(201,162,39,0.4)',
-                  letterSpacing: '0.01em',
-                }}>
+                <a
+                  href="/DALIMSS-Franchise-Application-Form.pdf"
+                  download="DALIMSS-Franchise-Application-Form.pdf"
+                  style={{
+                    background: 'linear-gradient(135deg, var(--gold), var(--gold-dark))',
+                    color: 'white',
+                    padding: '0.8rem 1.75rem',
+                    borderRadius: '0.5rem',
+                    fontWeight: 700,
+                    fontSize: '0.9rem',
+                    textDecoration: 'none',
+                    boxShadow: '0 4px 16px rgba(201,162,39,0.4)',
+                    letterSpacing: '0.01em',
+                  }}
+                >
                   Apply For Franchise →
-                </Link>
+                </a>
                 <Link href="/services/franchise" style={{
                   border: '2px solid rgba(255,255,255,0.4)',
                   color: 'white',
