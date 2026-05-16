@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Mail, Phone } from 'lucide-react';
 
 export default function Footer() {
@@ -12,19 +13,14 @@ export default function Footer() {
 
           {/* Brand */}
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.625rem', marginBottom: '1rem' }}>
-              <div style={{
-                background: 'linear-gradient(135deg, var(--gold-dark), var(--gold))',
-                color: 'white',
-                fontWeight: 900, fontSize: '1rem',
-                padding: '6px 10px', borderRadius: '8px', lineHeight: 1.2,
-              }}>
-                DALIMSS
-              </div>
-              <div style={{ lineHeight: 1.15 }}>
-                <div style={{ fontWeight: 800, fontSize: '0.8rem', color: 'white' }}>SUNBEAM</div>
-                <div style={{ fontWeight: 500, fontSize: '0.65rem', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Educomp Ltd</div>
-              </div>
+            <div style={{ marginBottom: '1rem' }}>
+              <Image
+                src="/logo.png"
+                alt="DALIMSS Sunbeam Educomp Ltd"
+                width={180}
+                height={48}
+                style={{ objectFit: 'contain', height: '44px', width: 'auto', filter: 'brightness(0) invert(1)' }}
+              />
             </div>
             <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.82rem', lineHeight: 1.8, marginBottom: '1.25rem' }}>
               Exploring growth in education in an evolving and volatile world. 50+ years of legacy, 25+ schools, 15,000+ students.
