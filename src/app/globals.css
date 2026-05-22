@@ -175,6 +175,14 @@ body {
   font-weight: 500;
 }
 
+/* ---- School card image zoom on hover ---- */
+.school-card-img {
+  transition: transform 0.5s ease !important;
+}
+.school-card:hover .school-card-img {
+  transform: scale(1.06) !important;
+}
+
 /* Responsive visibility */
 .mobile-only { display: none !important; }
 .desktop-nav { display: flex !important; }
