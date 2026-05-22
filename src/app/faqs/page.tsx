@@ -1,14 +1,16 @@
 'use client';
 import { useState } from 'react';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import Link from 'next/link';
+import { ChevronDown } from 'lucide-react';
 
 const faqGroups = [
   {
-    group: 'Is there any pre-requisite to opening a school?',
-    color: 'var(--maroon)',
+    group: 'Prerequisites',
+    icon: '📋',
+    heading: 'Is there any pre-requisite to opening a school?',
     faqs: [
       {
-        q: 'Do I need any kind of Degree, Qualification or Academic experience background to start a school?',
+        q: 'Do I need any Degree, Qualification or Academic experience to start a school?',
         a: 'Though experience is always an advantage, it is not essential. You and your team will be provided assistance from the very inception stage. Additionally you will be guided through all kinds of clearances required for opening a school.',
       },
       {
@@ -22,8 +24,9 @@ const faqGroups = [
     ],
   },
   {
-    group: 'How would DALIMSS Sunbeam Educomp Ltd. help me set-up the school?',
-    color: 'var(--maroon)',
+    group: 'Setup Support',
+    icon: '🏗️',
+    heading: 'How would DALIMSS Sunbeam Educomp Ltd. help me set-up the school?',
     faqs: [
       {
         q: 'Do you also provide any funding facility and at what cost?',
@@ -36,8 +39,9 @@ const faqGroups = [
     ],
   },
   {
-    group: 'Location & Infrastructure',
-    color: 'var(--maroon)',
+    group: 'Location',
+    icon: '📍',
+    heading: 'Location & Infrastructure',
     faqs: [
       {
         q: 'What should be the ideal location of a school?',
@@ -54,8 +58,9 @@ const faqGroups = [
     ],
   },
   {
-    group: 'Do you offer different specific operating and structural models?',
-    color: 'var(--maroon)',
+    group: 'Models & Fees',
+    icon: '💼',
+    heading: 'Do you offer different specific operating and structural models?',
     faqs: [
       {
         q: 'How is a DALIMSS Associate School model different from all others?',
@@ -80,21 +85,18 @@ const faqGroups = [
 function FAQItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
   return (
-    <div style={{ borderBottom: '1px solid #e8e8e8' }}>
+    <div style={{ borderBottom: '1px solid #ede8da' }}>
       <button
-        className="w-full text-left flex items-start justify-between gap-3 py-4 px-2"
         onClick={() => setOpen(!open)}
-        style={{ background: 'none', border: 'none', cursor: 'pointer' }}
+        style={{ width: '100%', textAlign: 'left' as const, display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '1rem', padding: '1.1rem 0', background: 'none', border: 'none', cursor: 'pointer' }}
       >
-        <span style={{ fontWeight: 600, fontSize: '0.9rem', color: 'var(--maroon)', lineHeight: 1.5 }}>{q}</span>
-        {open ? (
-          <ChevronUp size={18} style={{ color: 'var(--gold)', flexShrink: 0, marginTop: '2px' }} />
-        ) : (
-          <ChevronDown size={18} style={{ color: 'var(--gold)', flexShrink: 0, marginTop: '2px' }} />
-        )}
+        <span style={{ fontWeight: 600, fontSize: '0.9rem', color: open ? 'var(--maroon)' : '#333', lineHeight: 1.55, transition: 'color 0.2s' }}>{q}</span>
+        <div style={{ width: '24px', height: '24px', borderRadius: '50%', background: open ? 'var(--maroon)' : 'var(--cream)', border: '1.5px solid', borderColor: open ? 'var(--maroon)' : '#ddd', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: '2px', transition: 'all 0.2s' }}>
+          <ChevronDown size={13} style={{ color: open ? 'var(--gold)' : '#888', transform: open ? 'rotate(180deg)' : 'none', transition: 'transform 0.25s ease' }} />
+        </div>
       </button>
       {open && (
-        <div className="px-2 pb-4" style={{ fontSize: '0.875rem', color: '#555', lineHeight: 1.8 }}>
+        <div style={{ paddingBottom: '1.1rem', fontSize: '0.875rem', color: '#555', lineHeight: 1.85, borderLeft: '3px solid var(--gold)', paddingLeft: '1rem', marginBottom: '0.25rem' }}>
           {a}
         </div>
       )}
@@ -105,29 +107,42 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 export default function FAQs() {
   return (
     <main>
-      <section style={{ backgroundColor: 'var(--maroon)' }} className="py-12 px-4">
-        <div style={{ height: '3px', backgroundColor: 'var(--gold)', marginBottom: '1.5rem' }} />
-        <div className="max-w-5xl mx-auto text-center">
-          <h1 style={{ color: 'white', fontWeight: 800, fontSize: 'clamp(2rem,5vw,3rem)', marginBottom: '0.5rem' }}>
-            Frequently Asked Questions
+
+      {/* ── Hero ── */}
+      <section style={{ background: 'linear-gradient(135deg, #4a0f0f 0%, #7B1C1C 55%, #6b1515 100%)', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', inset: 0, backgroundImage: 'radial-gradient(circle, rgba(201,162,39,0.08) 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
+        <div style={{ height: '4px', background: 'linear-gradient(90deg, var(--gold-dark), var(--gold-light), var(--gold-dark))' }} />
+        <div style={{ position: 'relative', maxWidth: '64rem', margin: '0 auto', padding: '4rem 1.5rem 3.5rem', textAlign: 'center' }}>
+          <div style={{ display: 'inline-block', background: 'rgba(201,162,39,0.15)', border: '1px solid rgba(201,162,39,0.35)', borderRadius: '2rem', padding: '0.3rem 1.1rem', fontSize: '0.78rem', fontWeight: 700, color: 'var(--gold-light)', letterSpacing: '0.08em', textTransform: 'uppercase' as const, marginBottom: '1.25rem' }}>
+            Got Questions?
+          </div>
+          <h1 style={{ color: 'white', fontWeight: 900, fontSize: 'clamp(2rem,5vw,3.25rem)', letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: '0.75rem' }}>
+            Frequently Asked <span style={{ color: 'var(--gold)' }}>Questions</span>
           </h1>
-          <p style={{ color: 'var(--gold)', fontSize: '1.1rem' }}>
-            Everything you need to know about partnering with DALIMSS Sunbeam
+          <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '1.05rem', maxWidth: '500px', margin: '0 auto', lineHeight: 1.75 }}>
+            Everything you need to know about partnering with DALIMSS Sunbeam — from prerequisites to fees and support.
           </p>
         </div>
       </section>
 
-      <section className="py-16 px-4" style={{ backgroundColor: 'white' }}>
-        <div className="max-w-3xl mx-auto space-y-10">
+      {/* ── FAQ Groups ── */}
+      <section style={{ background: 'var(--cream)', padding: '5rem 1.5rem' }}>
+        <div style={{ maxWidth: '56rem', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '2rem' }}>
           {faqGroups.map((group) => (
             <div key={group.group}>
-              <h2
-                className="py-3 px-4 rounded-lg font-bold text-sm text-white mb-2"
-                style={{ backgroundColor: group.color }}
-              >
-                {group.group}
-              </h2>
-              <div className="rounded-lg overflow-hidden" style={{ border: '1px solid #e8e8e8' }}>
+              {/* Group header */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
+                <div style={{ width: '36px', height: '36px', borderRadius: '10px', background: 'linear-gradient(135deg, var(--gold-dark), var(--gold))', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1rem', flexShrink: 0 }}>
+                  {group.icon}
+                </div>
+                <div>
+                  <span style={{ fontSize: '0.65rem', fontWeight: 800, color: 'var(--gold-dark)', textTransform: 'uppercase' as const, letterSpacing: '0.08em' }}>{group.group}</span>
+                  <h2 style={{ fontWeight: 800, fontSize: '0.95rem', color: 'var(--maroon)', lineHeight: 1.3 }}>{group.heading}</h2>
+                </div>
+              </div>
+
+              {/* FAQ items */}
+              <div className="card" style={{ padding: '0.25rem 1.5rem' }}>
                 {group.faqs.map((faq) => (
                   <FAQItem key={faq.q} q={faq.q} a={faq.a} />
                 ))}
@@ -136,6 +151,24 @@ export default function FAQs() {
           ))}
         </div>
       </section>
+
+      {/* ── CTA ── */}
+      <section style={{ background: 'linear-gradient(135deg, var(--maroon-dark) 0%, var(--maroon) 100%)', padding: '4.5rem 1.5rem', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', inset: 0, backgroundImage: 'radial-gradient(circle, rgba(201,162,39,0.06) 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
+        <div style={{ position: 'relative', maxWidth: '520px', margin: '0 auto' }}>
+          <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>💬</div>
+          <h2 style={{ color: 'white', fontWeight: 900, fontSize: 'clamp(1.5rem,3.5vw,2.2rem)', letterSpacing: '-0.03em', lineHeight: 1.2, marginBottom: '0.75rem' }}>
+            Still Have Questions?
+          </h2>
+          <p style={{ color: 'rgba(255,255,255,0.65)', lineHeight: 1.75, marginBottom: '2rem', fontSize: '0.95rem' }}>
+            Our team is happy to walk you through the process personally. Reach out and we'll respond within 24 hours.
+          </p>
+          <Link href="/contact" style={{ background: 'linear-gradient(135deg, var(--gold), var(--gold-dark))', color: 'white', padding: '0.875rem 2.25rem', borderRadius: '0.5rem', fontWeight: 700, fontSize: '0.9rem', textDecoration: 'none', boxShadow: '0 4px 16px rgba(201,162,39,0.4)', display: 'inline-block' }}>
+            Contact Us
+          </Link>
+        </div>
+      </section>
+
     </main>
   );
 }
