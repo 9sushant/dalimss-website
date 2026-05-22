@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { schools } from '@/lib/schools';
 import { MapPin, Phone, Mail, GraduationCap, ArrowLeft } from 'lucide-react';
+import ImageSlider from '@/components/ImageSlider';
 
 export async function generateStaticParams() {
   return schools.map((s) => ({ slug: s.slug }));
@@ -44,6 +45,15 @@ export default async function SchoolPage({ params }: { params: Promise<{ slug: s
           </div>
         </div>
       </section>
+
+      {/* Photo Slider */}
+      {school.images && school.images.length > 0 && (
+        <section className="px-4 py-8" style={{ backgroundColor: 'white' }}>
+          <div className="max-w-5xl mx-auto">
+            <ImageSlider images={school.images} />
+          </div>
+        </section>
+      )}
 
       {/* About */}
       <section className="py-12 px-4" style={{ backgroundColor: 'white' }}>

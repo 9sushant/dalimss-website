@@ -9,6 +9,7 @@ export interface School {
   description: string;
   highlights: string[];
   facilities: { category: string; items: string[] }[];
+  images?: { src: string; alt: string }[];
 }
 
 export const schools: School[] = [
@@ -35,6 +36,11 @@ export const schools: School[] = [
       { category: 'Health & Hygiene', items: ['RO Filtration water system', 'Standardized separate sanitation'] },
       { category: 'Safety & Convenience', items: ['Transport network', 'Faculty infrastructure with dedicated staff rooms'] },
     ],
+    images: [
+      { src: '/schools/mau/campus-1.jpg', alt: 'Dalimss Sunbeam School Mau – Campus building' },
+      { src: '/schools/mau/campus-2.jpg', alt: 'Dalimss Sunbeam School Mau – Front view' },
+      { src: '/schools/mau/campus-3.jpg', alt: 'Dalimss Sunbeam School Mau – Campus' },
+    ],
   },
   {
     slug: 'sayadraja',
@@ -59,6 +65,9 @@ export const schools: School[] = [
       { category: 'Advanced Campus', items: ['Smart Classrooms', 'Science Labs', 'Computer Labs', 'Eco-friendly secure campus'] },
       { category: 'Academic Excellence', items: ['Certified educators', 'Personalized academic growth', 'Olympiad participation'] },
       { category: 'Sports & Physical Education', items: ['Professional coaching', 'Premium sports facilities'] },
+    ],
+    images: [
+      { src: '/schools/sayadraja/campus-1.png', alt: 'Dalimss Sunbeam School Sayadraja – Campus' },
     ],
   },
   {
@@ -85,6 +94,9 @@ export const schools: School[] = [
       { category: 'Holistic Growth', items: ['Elite Sports Infrastructure', 'Cultural & Performing Arts', 'Open-Air Learning Alleys'] },
       { category: 'Safety & Welfare', items: ['24/7 CCTV', 'Secure transport', 'Hygienic sanitation'] },
     ],
+    images: [
+      { src: '/schools/kuchman/campus-1.jpg', alt: 'Dalimss Sunbeam School Kuchman – Campus' },
+    ],
   },
   {
     slug: 'jaunpur',
@@ -109,6 +121,9 @@ export const schools: School[] = [
       { category: 'Academic', items: ['Computing Hub', 'Science Lab', 'Smart Classrooms'] },
       { category: 'Co-Curricular', items: ['Sports & Athletics', 'Cultural & Performing Arts'] },
       { category: 'Safety', items: ['24/7 CCTV', 'GPS buses', 'Hygienic sanitation', 'Open-Air Learning Alleys'] },
+    ],
+    images: [
+      { src: '/schools/jaunpur/campus-1.jpg', alt: 'Dalimss Sunbeam School Jaunpur – Campus' },
     ],
   },
   {
@@ -137,6 +152,9 @@ export const schools: School[] = [
       { category: 'Safety & Student Care', items: ['24/7 CCTV', 'GPS school buses', 'Health & Wellness cell', 'Clean water & sanitation'] },
       { category: 'Inclusive Infrastructure', items: ['Accessible campus (CWSN)', 'Career Guidance'] },
     ],
+    images: [
+      { src: '/schools/sultanpur/campus-1.jpg', alt: 'Dalimss Sunbeam School Sultanpur – Campus' },
+    ],
   },
   {
     slug: 'ghazipur',
@@ -162,6 +180,9 @@ export const schools: School[] = [
       { category: 'Spacious Campus', items: ['Modern campus', 'Bal Vatika', 'Staff Hostels'] },
       { category: 'Advanced Learning', items: ['AI-Powered Classrooms', 'Specialized Labs', 'Britannica Language Lab', 'Resource Center'] },
       { category: 'Safety & Mobility', items: ['GPS transport fleet', 'Safe environment'] },
+    ],
+    images: [
+      { src: '/schools/ghazipur/campus-1.jpg', alt: 'Dalimss Sunbeam School Ghazipur – Campus' },
     ],
   },
   {
@@ -189,6 +210,9 @@ export const schools: School[] = [
       { category: 'Creative & Holistic', items: ['Performing Arts Studios', 'Sports Complex', 'Wellness & Mindfulness Zone', 'Auditorium'] },
       { category: 'Safety & Connectivity', items: ['24/7 CCTV', 'GPS buses', 'Health & Counseling Cell', 'ERP & SMS system'] },
     ],
+    images: [
+      { src: '/schools/chandauli/campus-1.jpg', alt: 'Dalimss Sunbeam School Chandauli – Campus' },
+    ],
   },
   {
     slug: 'jakhania',
@@ -214,6 +238,9 @@ export const schools: School[] = [
       { category: 'Infrastructure', items: ['Modern building', 'Smart Classrooms', 'Well-Organized Library'] },
       { category: 'Student Development', items: ['Dedicated Faculty', 'Values & Discipline', 'Co-Curricular Programs', 'Physical Fitness'] },
       { category: 'Safety & Environment', items: ['Green & Clean Campus', 'Top-Tier CCTV Safety', 'Reliable Transport'] },
+    ],
+    images: [
+      { src: '/schools/jakhania/campus-1.png', alt: 'Dalimss Sunbeam School Jakhania – Campus' },
     ],
   },
   {
@@ -241,6 +268,9 @@ export const schools: School[] = [
       { category: 'Inclusion & Incentives', items: ['Targeted Academic Support', 'Merit-Based Scholarships'] },
       { category: 'Sports & Infrastructure', items: ['Diverse Athletic Programs (incl. Kickboxing)', 'Expert Faculty', 'Remote area transport'] },
     ],
+    images: [
+      { src: '/schools/dildarnagar/campus-1.jpg', alt: 'Dalimss Sunbeam School Dildarnagar – Campus' },
+    ],
   },
   {
     slug: 'azamgarh',
@@ -266,6 +296,9 @@ export const schools: School[] = [
       { category: 'Academic & Digital', items: ['Smart Classes', 'Specialized Laboratories', 'Knowledge Hub Library'] },
       { category: 'Physical & Co-Curricular', items: ['Elite Sports (Karate, Skating)', 'Wellness & Yoga', 'Music & Dance Clubs'] },
       { category: 'Safety & Personal Growth', items: ['CCTV Monitoring', 'GPS Camera-enabled transport', 'Soft Skills & Personality Development'] },
+    ],
+    images: [
+      { src: '/schools/azamgarh/campus-1.jpg', alt: 'Dalimss Sunbeam School Azamgarh – Campus' },
     ],
   },
 ];
