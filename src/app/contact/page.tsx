@@ -2,12 +2,31 @@
 import { useState } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 
-export default function Contact() {
-  const [submitted, setSubmitted] = useState(false);
+type Status = 'idle' | 'loading' | 'success' | 'error';
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+export default function Contact() {
+  const [status, setStatus] = useState<Status>('idle');
+  const [errorMsg, setErrorMsg] = useState('');
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitted(true);
+    setStatus('loading');
+    const form = e.currentTarget;
+    const data = Object.fromEntries(new FormData(form).entries());
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error ?? 'Unexpected error');
+      setStatus('success');
+      form.reset();
+    } catch (err) {
+      setErrorMsg(err instanceof Error ? err.message : 'Something went wrong.');
+      setStatus('error');
+    }
   }
 
   return (
@@ -76,14 +95,14 @@ export default function Contact() {
 
             {/* Form */}
             <div className="lg:col-span-3">
-              {submitted ? (
+              {status === 'success' ? (
                 <div className="h-full flex flex-col items-center justify-center text-center p-10 rounded-2xl" style={{ backgroundColor: 'var(--cream)', border: '2px solid var(--gold)' }}>
                   <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>✅</div>
                   <h3 style={{ fontWeight: 800, fontSize: '1.5rem', color: 'var(--maroon)', marginBottom: '0.5rem' }}>
                     Thank You!
                   </h3>
                   <p style={{ color: '#555', lineHeight: 1.7 }}>
-                    Your message has been received. Our team will get back to you within 24–48 hours.
+                    Your enquiry has been received. Our team will get back to you within 24–48 hours.
                   </p>
                 </div>
               ) : (
@@ -129,13 +148,19 @@ export default function Contact() {
                       style={{ backgroundColor: 'white', border: '1.5px solid #ddd', color: '#333' }}
                     />
                   </div>
+                  {status === 'error' && (
+                    <p style={{ color: '#c0392b', fontSize: '0.85rem', marginTop: '-0.5rem' }}>
+                      {errorMsg}
+                    </p>
+                  )}
                   <button
                     type="submit"
+                    disabled={status === 'loading'}
                     className="w-full flex items-center justify-center gap-2 py-3 rounded font-bold text-sm"
-                    style={{ backgroundColor: 'var(--maroon)', color: 'white' }}
+                    style={{ backgroundColor: 'var(--maroon)', color: 'white', opacity: status === 'loading' ? 0.7 : 1, cursor: status === 'loading' ? 'not-allowed' : 'pointer' }}
                   >
                     <Send size={16} />
-                    Submit Enquiry
+                    {status === 'loading' ? 'Sending…' : 'Submit Enquiry'}
                   </button>
                 </form>
               )}
