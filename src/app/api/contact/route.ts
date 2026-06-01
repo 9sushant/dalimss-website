@@ -69,9 +69,7 @@ export async function POST(req: NextRequest) {
     }
   }
 
-  if (errors.includes('email')) {
-    return NextResponse.json({ error: 'Could not send your enquiry. Please try again.' }, { status: 500 });
-  }
-
-  return NextResponse.json({ success: true });
+  // Return success so WhatsApp redirect always fires on the client.
+  // Email errors are logged server-side but do not block the enquiry.
+  return NextResponse.json({ success: true, emailSent: !errors.includes('email') });
 }
