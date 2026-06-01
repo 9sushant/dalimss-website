@@ -12,7 +12,7 @@ export default function Contact() {
     e.preventDefault();
     setStatus('loading');
     const form = e.currentTarget;
-    const data = Object.fromEntries(new FormData(form).entries());
+    const data = Object.fromEntries(new FormData(form).entries()) as Record<string, string>;
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
@@ -23,6 +23,24 @@ export default function Contact() {
       if (!res.ok) throw new Error(json.error ?? 'Unexpected error');
       setStatus('success');
       form.reset();
+
+      // Send enquiry details to WhatsApp +919277802103
+      const msg = [
+        '📋 *New Enquiry – DALIMSS Website*',
+        '',
+        `👤 *Name:* ${data.name}`,
+        `📧 *Email:* ${data.email}`,
+        `📞 *Phone:* ${data.phone}`,
+        data.school_type ? `🏫 *School Type:* ${data.school_type}` : '',
+        data.state       ? `🗺️ *State:* ${data.state}`            : '',
+        data.city        ? `🏙️ *City:* ${data.city}`              : '',
+        data.message     ? `💬 *Message:* ${data.message}`        : '',
+      ].filter(Boolean).join('\n');
+
+      window.open(
+        `https://wa.me/919277802103?text=${encodeURIComponent(msg)}`,
+        '_blank',
+      );
     } catch (err) {
       setErrorMsg(err instanceof Error ? err.message : 'Something went wrong.');
       setStatus('error');
@@ -96,10 +114,18 @@ export default function Contact() {
             {status === 'success' ? (
               <div className="card" style={{ padding: '3rem', textAlign: 'center' }}>
                 <div style={{ fontSize: '3.5rem', marginBottom: '1rem' }}>✅</div>
-                <h3 style={{ fontWeight: 900, fontSize: '1.5rem', color: 'var(--maroon)', marginBottom: '0.5rem' }}>Thank You!</h3>
-                <p style={{ color: '#666', lineHeight: 1.7, fontSize: '0.9rem' }}>
-                  Your enquiry has been received. Our team will get back to you within 24–48 hours.
+                <h3 style={{ fontWeight: 900, fontSize: '1.5rem', color: 'var(--maroon)', marginBottom: '0.5rem' }}>Enquiry Sent!</h3>
+                <p style={{ color: '#666', lineHeight: 1.7, fontSize: '0.9rem', marginBottom: '1.25rem' }}>
+                  Your details have been emailed to our team. A WhatsApp window has also opened — please press <strong>Send</strong> there so we receive your enquiry instantly.
                 </p>
+                <a
+                  href="https://wa.me/919277802103"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: '#25D366', color: 'white', padding: '0.7rem 1.5rem', borderRadius: '0.5rem', fontWeight: 700, fontSize: '0.85rem', textDecoration: 'none', boxShadow: '0 4px 12px rgba(37,211,102,0.35)' }}
+                >
+                  <span style={{ fontSize: '1.1rem' }}>💬</span> Open WhatsApp Again
+                </a>
               </div>
             ) : (
               <div className="card" style={{ padding: '2rem' }}>
