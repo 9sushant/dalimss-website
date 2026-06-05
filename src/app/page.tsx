@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Award, Users, School, MapPin, GraduationCap, BookOpen } from 'lucide-react';
 
 const stats = [
@@ -45,11 +46,11 @@ const postLaunch = [
 ];
 
 const awards = [
-  { icon: '🏅', title: 'Education World Award',          desc: 'Best School In UP' },
-  { icon: '🥇', title: 'AcadElite Award 2025',           desc: 'Excellence in Education' },
-  { icon: '⭐', title: 'No.1 School in Varanasi',        desc: 'India Pre School Grand Jury Awards 2025–26' },
-  { icon: '🏆', title: 'Outstanding Day-cum-Boarding',   desc: 'Dalimss Sunbeam School & Hostel, Rohania' },
-  { icon: '🎖️', title: 'Education Resources & Tech',     desc: 'Expo Recognition at ETTECHX' },
+  { photo: '/awards/award-education-world.png', badge: '🏅', title: 'Education World Award', subtitle: 'India School Rankings 2022–23', desc: 'Best School In UP' },
+  { photo: '/awards/award-acadelite.png',        badge: '🥇', title: 'AcadElite Award 2025',   subtitle: 'Excellence in Education',      desc: 'Basant of Excellence' },
+  { photo: '/awards/award-preschool.png',        badge: '⭐', title: 'No.1 School in Varanasi', subtitle: 'India Pre School Grand Jury', desc: 'Rankings 2025–26' },
+  { photo: '/awards/award-up-rankings.png',      badge: '🏆', title: 'UP State Award',          subtitle: 'Uttar Pradesh Rankings',      desc: 'Outstanding Day-cum-Boarding' },
+  { photo: '/awards/award-ettechx.png',          badge: '🎖️', title: 'Education Resources & Tech', subtitle: 'ETTECHX Expo Recognition', desc: 'Asia\'s Leading Ed-Tech Expo' },
 ];
 
 export default function Home() {
@@ -364,30 +365,51 @@ export default function Home() {
       </section>
 
       {/* ═══ AWARDS ═══ */}
-      <section style={{ background: 'linear-gradient(135deg, #4a0f0f 0%, var(--maroon) 100%)', padding: '4rem 1.5rem', position: 'relative', overflow: 'hidden' }}>
-        <div style={{
-          position: 'absolute', inset: 0,
-          backgroundImage: 'radial-gradient(circle, rgba(201,162,39,0.07) 1px, transparent 1px)',
-          backgroundSize: '24px 24px',
-        }} />
-        <div style={{ position: 'relative', maxWidth: '72rem', margin: '0 auto' }}>
-          <h2 className="section-heading" style={{ color: 'white' }}>
-            Awards &amp; Achievements
-          </h2>
-          <p className="section-subheading" style={{ color: 'rgba(255,255,255,0.6)' }}>Recognition that validates our commitment to excellence</p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(175px, 1fr))', gap: '1rem', marginTop: '0.5rem' }}>
+      <section style={{ background: 'linear-gradient(160deg, #2a0808 0%, #4a0f0f 40%, #7B1C1C 100%)', padding: '5rem 1.5rem', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', inset: 0, backgroundImage: 'radial-gradient(circle, rgba(201,162,39,0.06) 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
+        {/* Gold top accent */}
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'linear-gradient(90deg, var(--gold-dark), var(--gold-light), var(--gold-dark))' }} />
+
+        <div style={{ position: 'relative', maxWidth: '80rem', margin: '0 auto' }}>
+          {/* Heading */}
+          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+            <div style={{ display: 'inline-block', background: 'rgba(201,162,39,0.15)', border: '1px solid rgba(201,162,39,0.35)', borderRadius: '2rem', padding: '0.3rem 1.1rem', fontSize: '0.75rem', fontWeight: 700, color: 'var(--gold-light)', letterSpacing: '0.1em', textTransform: 'uppercase' as const, marginBottom: '1rem' }}>
+              Nationally Recognised
+            </div>
+            <h2 className="section-heading" style={{ color: 'white' }}>Awards &amp; Achievements</h2>
+            <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.95rem', marginTop: '0.5rem' }}>Recognition that validates our commitment to excellence</p>
+          </div>
+
+          {/* Photo Cards Grid */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.25rem' }}>
             {awards.map((a) => (
-              <div key={a.title} style={{
-                padding: '1.75rem 1.25rem',
-                borderRadius: '1rem',
-                background: 'rgba(255,255,255,0.06)',
-                border: '1px solid rgba(201,162,39,0.25)',
-                textAlign: 'center',
-                backdropFilter: 'blur(8px)',
-              }}>
-                <div style={{ fontSize: '2rem', marginBottom: '0.75rem' }}>{a.icon}</div>
-                <h4 style={{ fontWeight: 700, fontSize: '0.85rem', color: 'var(--gold-light)', marginBottom: '0.4rem', lineHeight: 1.35 }}>{a.title}</h4>
-                <p style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.5, fontStyle: 'italic' }}>{a.desc}</p>
+              <div key={a.title} style={{ borderRadius: '1.25rem', overflow: 'hidden', position: 'relative', boxShadow: '0 12px 40px rgba(0,0,0,0.45)', border: '1px solid rgba(201,162,39,0.2)' }}>
+                {/* Photo */}
+                <div style={{ position: 'relative', aspectRatio: '4/3', overflow: 'hidden' }}>
+                  <Image
+                    src={a.photo}
+                    alt={a.title}
+                    fill
+                    style={{ objectFit: 'cover', objectPosition: 'center top' }}
+                    sizes="(max-width: 768px) 100vw, 240px"
+                  />
+                  {/* Dark gradient overlay bottom */}
+                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(30,5,5,0.92) 0%, rgba(0,0,0,0.2) 55%, transparent 100%)' }} />
+                  {/* Badge pill top-right */}
+                  <div style={{ position: 'absolute', top: '0.75rem', right: '0.75rem', background: 'rgba(201,162,39,0.95)', borderRadius: '2rem', padding: '0.2rem 0.6rem', fontSize: '0.65rem', fontWeight: 800, color: '#2a0808', letterSpacing: '0.06em', textTransform: 'uppercase' as const }}>
+                    Award
+                  </div>
+                  {/* Text overlay at bottom of photo */}
+                  <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '1rem 1rem 0.85rem' }}>
+                    <p style={{ fontSize: '0.6rem', fontWeight: 700, color: 'var(--gold)', letterSpacing: '0.08em', textTransform: 'uppercase' as const, marginBottom: '0.2rem', opacity: 0.9 }}>{a.subtitle}</p>
+                    <h4 style={{ fontWeight: 800, fontSize: '0.9rem', color: 'white', lineHeight: 1.25, margin: 0 }}>{a.title}</h4>
+                  </div>
+                </div>
+                {/* Card footer */}
+                <div style={{ background: 'rgba(255,255,255,0.04)', backdropFilter: 'blur(12px)', padding: '0.85rem 1rem', borderTop: '1px solid rgba(201,162,39,0.18)', display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                  <span style={{ fontSize: '1.2rem', flexShrink: 0 }}>{a.badge}</span>
+                  <p style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.72)', lineHeight: 1.4, margin: 0 }}>{a.desc}</p>
+                </div>
               </div>
             ))}
           </div>
