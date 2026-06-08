@@ -7,7 +7,7 @@ export const metadata = {
 
 const directors = [
   {
-    photo: '/leadership/director-1.webp',
+    photo: '/leadership/director-1.png',
     name: 'Mrs. Pooja Madhok',
     title: 'Director',
     quote: '"Together, let\'s shape futures, inspire change, and create success stories."',
@@ -17,7 +17,7 @@ const directors = [
     ],
   },
   {
-    photo: '/leadership/director-2.webp',
+    photo: '/leadership/director-2.png',
     name: 'Mr. Maahir Madhok',
     title: 'Director',
     quote: '"Together, we are building a future where education is not just preparation for life — it is life itself."',
