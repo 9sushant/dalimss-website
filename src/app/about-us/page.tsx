@@ -107,7 +107,7 @@ export default function AboutUs() {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'auto 1fr', gap: '2.5rem', alignItems: 'flex-start' }}>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.75rem', flexShrink: 0 }}>
-              <LeaderPhoto src="/leadership/chairman.webp" alt="Chairman – DALIMSS Sunbeam Educomp" />
+              <LeaderPhoto src="/leadership/chairman.png" alt="Chairman – DALIMSS Sunbeam Educomp" />
               <div style={{ textAlign: 'center' }}>
                 <p style={{ fontWeight: 800, fontSize: '0.875rem', color: 'var(--maroon)' }}>Dr. Pradeep Madhok</p>
                 <p style={{ fontSize: '0.72rem', color: 'var(--gold-dark)', fontWeight: 700, textTransform: 'uppercase' as const, letterSpacing: '0.05em' }}>Chairman</p>
