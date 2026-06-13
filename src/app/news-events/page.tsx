@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export const metadata = {
   title: 'News & Events | DALIMSS Sunbeam Educomp Ltd',
@@ -21,6 +22,7 @@ const newsItems = [
     title: 'No.1 Pre-School in Varanasi',
     desc: 'Recognized as the No.1 School in Varanasi under the India Pre School Grand Jury Awards 2025–26, reflecting our dedication to early childhood excellence.',
     featured: false,
+    photo: '/news/no1-preschool-varanasi.png',
   },
   {
     date: 'January 2025',
@@ -37,6 +39,7 @@ const newsItems = [
     title: 'Education Resources & Technology Expo',
     desc: 'Showcased our innovative educational solutions at ETTECHX — Education Resources and Technology Expo, highlighting our integration of smart technology in classrooms.',
     featured: false,
+    photo: '/news/education-resources-expo.png',
   },
   {
     date: 'November 2024',
@@ -45,6 +48,7 @@ const newsItems = [
     title: 'Outstanding Day-cum-Boarding School',
     desc: 'DALIMSS Sunbeam School & Hostel, Rohania, Varanasi was officially ranked as an Outstanding Day-cum-Boarding institution — among the finest in the region.',
     featured: false,
+    photo: '/news/outstanding-dayboarding.png',
   },
   {
     date: 'October 2024',
@@ -209,9 +213,24 @@ export default function NewsEvents() {
               const cs = categoryStyle[item.category] ?? categoryStyle['Award'];
               const accent = accentColor[item.category] ?? 'var(--maroon)';
               return (
-                <div key={item.title} className="card" style={{ display: 'flex', flexDirection: 'column', overflow: 'visible' }}>
+                <div key={item.title} className="card" style={{ display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
                   {/* Accent top bar */}
                   <div style={{ height: '4px', background: accent, borderRadius: '1rem 1rem 0 0', margin: '-1px -1px 0', flexShrink: 0 }} />
+
+                  {/* Photo (only when available) */}
+                  {(item as { photo?: string }).photo && (
+                    <div style={{ position: 'relative', aspectRatio: '16/9', overflow: 'hidden', flexShrink: 0 }}>
+                      <Image
+                        src={(item as { photo?: string }).photo!}
+                        alt={item.title}
+                        fill
+                        style={{ objectFit: 'cover', objectPosition: 'center top' }}
+                        sizes="(max-width: 768px) 100vw, 350px"
+                      />
+                      {/* subtle gradient overlay at bottom */}
+                      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.18) 0%, transparent 60%)' }} />
+                    </div>
+                  )}
 
                   <div style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
                     {/* Icon + category + date */}
