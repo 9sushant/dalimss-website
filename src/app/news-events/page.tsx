@@ -31,6 +31,7 @@ const newsItems = [
     title: 'Education World Award',
     desc: 'Received the Education World Award for The Best School in UP — validating our commitment to holistic academic excellence and student development.',
     featured: false,
+    photo: '/news/education-world-award.png',
   },
   {
     date: 'December 2024',
@@ -57,6 +58,7 @@ const newsItems = [
     title: 'New School Launch',
     desc: 'Expanded our network with the successful launch of our newest associate school, continuing our mission of spreading quality, values-driven education across Uttar Pradesh.',
     featured: false,
+    photo: '/news/new-school-launch.png',
   },
 ];
 
