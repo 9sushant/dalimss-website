@@ -50,6 +50,7 @@ const newsItems = [
     desc: 'DALIMSS Sunbeam School & Hostel, Rohania, Varanasi was officially ranked as an Outstanding Day-cum-Boarding institution — among the finest in the region.',
     featured: false,
     photo: '/news/outstanding-dayboarding.png',
+    photoPosition: 'center 45%',
   },
   {
     date: 'October 2024',
@@ -220,13 +221,13 @@ export default function NewsEvents() {
                   <div style={{ height: '4px', background: accent, borderRadius: '1rem 1rem 0 0', margin: '-1px -1px 0', flexShrink: 0 }} />
 
                   {/* Photo (only when available) */}
-                  {(item as { photo?: string }).photo && (
+                  {(item as { photo?: string; photoPosition?: string }).photo && (
                     <div style={{ position: 'relative', aspectRatio: '16/9', overflow: 'hidden', flexShrink: 0 }}>
                       <Image
                         src={(item as { photo?: string }).photo!}
                         alt={item.title}
                         fill
-                        style={{ objectFit: 'cover', objectPosition: 'center top' }}
+                        style={{ objectFit: 'cover', objectPosition: (item as { photoPosition?: string }).photoPosition ?? 'center top' }}
                         sizes="(max-width: 768px) 100vw, 350px"
                       />
                       {/* subtle gradient overlay at bottom */}
