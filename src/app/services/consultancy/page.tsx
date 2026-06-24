@@ -41,9 +41,9 @@ export default function Consultancy() {
         <div style={{ maxWidth: '80rem', margin: '0 auto' }}>
           <h2 className="section-heading">Our Consultancy <span style={{ color: 'var(--gold)' }}>Services</span></h2>
           <p className="section-subheading">Eight pillars of support to build and grow a thriving school</p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(270px, 1fr))', gap: '1.5rem', marginTop: '1rem' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1.5rem', marginTop: '1rem' }}>
             {services.map((s, i) => (
-              <div key={s.title} className="card" style={{ padding: '1.75rem', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+              <div key={s.title} className="card" style={{ flex: '1 1 270px', maxWidth: '360px', padding: '1.75rem', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
                 <div style={{ width: '50px', height: '50px', borderRadius: '14px', background: 'linear-gradient(135deg, #fdf4dc, #ffeeba)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.4rem', flexShrink: 0 }}>
                   {s.icon}
                 </div>

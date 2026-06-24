@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Mail, Phone } from 'lucide-react';
+import ContactTrigger from '@/components/ContactTrigger';
 
 export default function Footer() {
   return (
@@ -131,7 +132,7 @@ export default function Footer() {
                 9277802103
               </a>
               <div style={{ marginTop: '0.5rem' }}>
-                <Link href="/contact" style={{
+                <ContactTrigger style={{
                   display: 'inline-block',
                   background: 'linear-gradient(135deg, var(--gold), var(--gold-dark))',
                   color: 'white',
@@ -141,9 +142,10 @@ export default function Footer() {
                   textDecoration: 'none',
                   letterSpacing: '0.01em',
                   boxShadow: '0 3px 10px rgba(201,162,39,0.3)',
+                  border: 'none',
                 }}>
                   Partner With Us →
-                </Link>
+                </ContactTrigger>
               </div>
             </div>
           </div>

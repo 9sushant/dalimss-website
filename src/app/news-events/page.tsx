@@ -6,7 +6,18 @@ export const metadata = {
   description: 'Latest achievements, awards, milestones and events from DALIMSS Sunbeam Educomp.',
 };
 
-const newsItems = [
+interface NewsItem {
+  date: string;
+  category: string;
+  icon: string;
+  title: string;
+  desc: string;
+  featured: boolean;
+  photo?: string;
+  photoPosition?: string;
+}
+
+const newsItems: NewsItem[] = [
   {
     date: 'March 2025',
     category: 'Award',
@@ -78,9 +89,103 @@ const accentColor: Record<string, string> = {
 };
 
 const featured = newsItems.find((n) => n.featured)!;
-const rest = newsItems.filter((n) => !n.featured);
+const awardsList = newsItems.filter(item => (item.category === 'Award' || item.category === 'Recognition') && !item.featured);
+const exposList = newsItems.filter(item => item.category === 'Expo' && !item.featured);
+const milestonesList = newsItems.filter(item => item.category === 'Milestone' && !item.featured);
 
 export default function NewsEvents() {
+  const renderCard = (item: NewsItem) => {
+    const cs = categoryStyle[item.category] ?? categoryStyle['Award'];
+    const accent = accentColor[item.category] ?? 'var(--maroon)';
+    return (
+      <div key={item.title} className="card" style={{ display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+        {/* Accent top bar */}
+        <div style={{ height: '4px', background: accent, borderRadius: '1rem 1rem 0 0', margin: '-1px -1px 0', flexShrink: 0 }} />
+
+        {/* Photo (only when available) */}
+        {item.photo && (
+          <div style={{ position: 'relative', aspectRatio: '16/9', overflow: 'hidden', flexShrink: 0 }}>
+            <Image
+              src={item.photo}
+              alt={item.title}
+              fill
+              style={{ objectFit: 'cover', objectPosition: item.photoPosition ?? 'center top' }}
+              sizes="(max-width: 768px) 100vw, 350px"
+            />
+            {/* subtle gradient overlay at bottom */}
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.18) 0%, transparent 60%)' }} />
+          </div>
+        )}
+
+        <div style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+          {/* Icon + category + date */}
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+              <div style={{
+                width: '38px', height: '38px',
+                borderRadius: '10px',
+                background: cs.bg,
+                border: `1.5px solid ${cs.border}`,
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                fontSize: '1.15rem', flexShrink: 0,
+              }}>
+                {item.icon}
+              </div>
+              <span style={{
+                fontSize: '0.68rem', fontWeight: 800,
+                color: cs.color,
+                background: cs.bg,
+                border: `1px solid ${cs.border}`,
+                padding: '0.2rem 0.55rem',
+                borderRadius: '2rem',
+                letterSpacing: '0.05em',
+                textTransform: 'uppercase' as const,
+              }}>
+                {item.category}
+              </span>
+            </div>
+            <span style={{
+              fontSize: '0.7rem', color: '#aaa', fontWeight: 500,
+              background: '#f5f5f5', padding: '0.2rem 0.6rem',
+              borderRadius: '2rem', whiteSpace: 'nowrap' as const,
+            }}>
+              {item.date}
+            </span>
+          </div>
+
+          <h3 style={{
+            fontWeight: 800, fontSize: '1rem',
+            color: 'var(--maroon)', lineHeight: 1.3,
+            marginBottom: '0.6rem',
+          }}>
+            {item.title}
+          </h3>
+          <p style={{ fontSize: '0.82rem', color: '#555', lineHeight: 1.7, flexGrow: 1 }}>
+            {item.desc}
+          </p>
+
+          {/* Bottom divider accent */}
+          <div style={{
+            marginTop: '1.25rem',
+            paddingTop: '1rem',
+            borderTop: '1.5px solid #f0ece0',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.4rem',
+          }}>
+            <div style={{
+              width: '6px', height: '6px', borderRadius: '50%',
+              background: accent, flexShrink: 0,
+            }} />
+            <span style={{ fontSize: '0.7rem', color: '#bbb', fontWeight: 500 }}>
+              DALIMSS Sunbeam Educomp
+            </span>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <main>
 
@@ -202,108 +307,68 @@ export default function NewsEvents() {
       <section style={{ background: 'var(--cream)', padding: '3rem 1.5rem 5rem' }}>
         <div style={{ maxWidth: '72rem', margin: '0 auto' }}>
 
-          <div style={{ marginBottom: '2rem', marginTop: '1rem' }}>
+          <div style={{ marginBottom: '3rem', marginTop: '1rem', textAlign: 'center' }}>
             <h2 className="section-heading">More <span style={{ color: 'var(--gold)' }}>Updates</span></h2>
             <p className="section-subheading">Awards, expos, and milestones shaping our journey</p>
           </div>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(290px, 1fr))',
-            gap: '1.5rem',
-          }}>
-            {rest.map((item) => {
-              const cs = categoryStyle[item.category] ?? categoryStyle['Award'];
-              const accent = accentColor[item.category] ?? 'var(--maroon)';
-              return (
-                <div key={item.title} className="card" style={{ display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
-                  {/* Accent top bar */}
-                  <div style={{ height: '4px', background: accent, borderRadius: '1rem 1rem 0 0', margin: '-1px -1px 0', flexShrink: 0 }} />
+          {/* 🏆 Awards & Recognitions Section */}
+          {awardsList.length > 0 && (
+            <div style={{ marginBottom: '4rem' }}>
+              <div style={{ marginBottom: '1.75rem', borderBottom: '2.5px solid rgba(201,162,39,0.2)', paddingBottom: '0.75rem' }}>
+                <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--maroon)', display: 'flex', alignItems: 'center', gap: '0.6rem', letterSpacing: '-0.02em' }}>
+                  <span>🏆</span> Awards &amp; Recognitions
+                </h3>
+                <p style={{ fontSize: '0.82rem', color: '#666', marginTop: '0.2rem' }}>Honors and accolades recognizing our standard of academic excellence</p>
+              </div>
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fill, minmax(290px, 1fr))',
+                gap: '1.5rem',
+              }}>
+                {awardsList.map(renderCard)}
+              </div>
+            </div>
+          )}
 
-                  {/* Photo (only when available) */}
-                  {(item as { photo?: string; photoPosition?: string }).photo && (
-                    <div style={{ position: 'relative', aspectRatio: '16/9', overflow: 'hidden', flexShrink: 0 }}>
-                      <Image
-                        src={(item as { photo?: string }).photo!}
-                        alt={item.title}
-                        fill
-                        style={{ objectFit: 'cover', objectPosition: (item as { photoPosition?: string }).photoPosition ?? 'center top' }}
-                        sizes="(max-width: 768px) 100vw, 350px"
-                      />
-                      {/* subtle gradient overlay at bottom */}
-                      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.18) 0%, transparent 60%)' }} />
-                    </div>
-                  )}
+          {/* 🎯 Educational Expos Section */}
+          {exposList.length > 0 && (
+            <div style={{ marginBottom: '4rem' }}>
+              <div style={{ marginBottom: '1.75rem', borderBottom: '2.5px solid rgba(33,150,243,0.2)', paddingBottom: '0.75rem' }}>
+                <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#1565c0', display: 'flex', alignItems: 'center', gap: '0.6rem', letterSpacing: '-0.02em' }}>
+                  <span>🎯</span> Expos &amp; Conferences
+                </h3>
+                <p style={{ fontSize: '0.82rem', color: '#666', marginTop: '0.2rem' }}>Showcasing our smart learning solutions and technological integration</p>
+              </div>
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fill, minmax(290px, 1fr))',
+                gap: '1.5rem',
+              }}>
+                {exposList.map(renderCard)}
+              </div>
+            </div>
+          )}
 
-                  <div style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
-                    {/* Icon + category + date */}
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem' }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-                        <div style={{
-                          width: '38px', height: '38px',
-                          borderRadius: '10px',
-                          background: cs.bg,
-                          border: `1.5px solid ${cs.border}`,
-                          display: 'flex', alignItems: 'center', justifyContent: 'center',
-                          fontSize: '1.15rem', flexShrink: 0,
-                        }}>
-                          {item.icon}
-                        </div>
-                        <span style={{
-                          fontSize: '0.68rem', fontWeight: 800,
-                          color: cs.color,
-                          background: cs.bg,
-                          border: `1px solid ${cs.border}`,
-                          padding: '0.2rem 0.55rem',
-                          borderRadius: '2rem',
-                          letterSpacing: '0.05em',
-                          textTransform: 'uppercase' as const,
-                        }}>
-                          {item.category}
-                        </span>
-                      </div>
-                      <span style={{
-                        fontSize: '0.7rem', color: '#aaa', fontWeight: 500,
-                        background: '#f5f5f5', padding: '0.2rem 0.6rem',
-                        borderRadius: '2rem', whiteSpace: 'nowrap' as const,
-                      }}>
-                        {item.date}
-                      </span>
-                    </div>
+          {/* 🚀 Corporate Milestones Section */}
+          {milestonesList.length > 0 && (
+            <div style={{ marginBottom: '2rem' }}>
+              <div style={{ marginBottom: '1.75rem', borderBottom: '2.5px solid rgba(56,142,60,0.2)', paddingBottom: '0.75rem' }}>
+                <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#2e7d32', display: 'flex', alignItems: 'center', gap: '0.6rem', letterSpacing: '-0.02em' }}>
+                  <span>🚀</span> Key Milestones
+                </h3>
+                <p style={{ fontSize: '0.82rem', color: '#666', marginTop: '0.2rem' }}>Key achievements in expanding our footprints and network growth</p>
+              </div>
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fill, minmax(290px, 1fr))',
+                gap: '1.5rem',
+              }}>
+                {milestonesList.map(renderCard)}
+              </div>
+            </div>
+          )}
 
-                    <h3 style={{
-                      fontWeight: 800, fontSize: '1rem',
-                      color: 'var(--maroon)', lineHeight: 1.3,
-                      marginBottom: '0.6rem',
-                    }}>
-                      {item.title}
-                    </h3>
-                    <p style={{ fontSize: '0.82rem', color: '#555', lineHeight: 1.7, flexGrow: 1 }}>
-                      {item.desc}
-                    </p>
-
-                    {/* Bottom divider accent */}
-                    <div style={{
-                      marginTop: '1.25rem',
-                      paddingTop: '1rem',
-                      borderTop: '1.5px solid #f0ece0',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '0.4rem',
-                    }}>
-                      <div style={{
-                        width: '6px', height: '6px', borderRadius: '50%',
-                        background: accent, flexShrink: 0,
-                      }} />
-                      <span style={{ fontSize: '0.7rem', color: '#bbb', fontWeight: 500 }}>
-                        DALIMSS Sunbeam Educomp
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
         </div>
       </section>
 

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import ContactTrigger from '@/components/ContactTrigger';
 
 export const metadata = {
   title: 'Toddlers n Kids | DALIMSS Sunbeam Educomp Ltd',
@@ -57,10 +58,10 @@ export default function Toddlers() {
         <div style={{ maxWidth: '72rem', margin: '0 auto' }}>
           <h2 className="section-heading">Setup <span style={{ color: 'var(--gold)' }}>Requirements</span></h2>
           <p className="section-subheading">Simple, practical requirements to launch your playschool</p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '2rem', marginTop: '1rem' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '2rem', marginTop: '1rem' }}>
 
             {/* Space */}
-            <div className="card" style={{ padding: '2rem' }}>
+            <div className="card" style={{ flex: '1 1 450px', maxWidth: '540px', padding: '2rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.5rem' }}>
                 <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: 'linear-gradient(135deg, #fdf4dc, #ffeeba)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.4rem' }}>📐</div>
                 <h3 style={{ fontWeight: 800, fontSize: '1.05rem', color: 'var(--maroon)' }}>Space Requirements</h3>
@@ -76,7 +77,7 @@ export default function Toddlers() {
             </div>
 
             {/* Infrastructure */}
-            <div className="card" style={{ padding: '2rem' }}>
+            <div className="card" style={{ flex: '1 1 450px', maxWidth: '540px', padding: '2rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.5rem' }}>
                 <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: 'linear-gradient(135deg, #fdf4dc, #ffeeba)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.4rem' }}>🏫</div>
                 <h3 style={{ fontWeight: 800, fontSize: '1.05rem', color: 'var(--maroon)' }}>Essential Infrastructure</h3>
@@ -100,9 +101,9 @@ export default function Toddlers() {
         <div style={{ maxWidth: '64rem', margin: '0 auto' }}>
           <h2 className="section-heading">Legal <span style={{ color: 'var(--gold)' }}>Permissions</span> Required</h2>
           <p className="section-subheading">Core approvals needed to run a compliant playschool</p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '1rem', marginTop: '1rem' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1rem', marginTop: '1rem' }}>
             {permissions.map((perm) => (
-              <div key={perm.label} style={{ background: 'linear-gradient(145deg, #4a0f0f, var(--maroon))', borderRadius: '1rem', padding: '1.5rem 1rem', textAlign: 'center', boxShadow: '0 4px 16px rgba(123,28,28,0.2)' }}>
+              <div key={perm.label} style={{ flex: '1 1 180px', maxWidth: '240px', background: 'linear-gradient(145deg, #4a0f0f, var(--maroon))', borderRadius: '1rem', padding: '1.5rem 1rem', textAlign: 'center', boxShadow: '0 4px 16px rgba(123,28,28,0.2)' }}>
                 <div style={{ fontSize: '1.75rem', marginBottom: '0.6rem' }}>{perm.icon}</div>
                 <p style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--gold-light)', lineHeight: 1.4 }}>{perm.label}</p>
               </div>
@@ -115,16 +116,15 @@ export default function Toddlers() {
       <section style={{ background: 'linear-gradient(135deg, var(--maroon-dark) 0%, var(--maroon) 100%)', padding: '4.5rem 1.5rem', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', inset: 0, backgroundImage: 'radial-gradient(circle, rgba(201,162,39,0.06) 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
         <div style={{ position: 'relative', maxWidth: '580px', margin: '0 auto' }}>
-          <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>🌸</div>
           <h2 style={{ color: 'white', fontWeight: 900, fontSize: 'clamp(1.5rem,3.5vw,2.2rem)', letterSpacing: '-0.03em', lineHeight: 1.2, marginBottom: '0.75rem' }}>
             Open a Playschool with DALIMSS
           </h2>
           <p style={{ color: 'rgba(255,255,255,0.65)', lineHeight: 1.75, marginBottom: '2rem', fontSize: '0.95rem' }}>
             Our playschool curriculum focuses on play-based, activity-centred learning with proper teacher-child ratios and continuous professional development.
           </p>
-          <Link href="/contact" style={{ background: 'linear-gradient(135deg, var(--gold), var(--gold-dark))', color: 'white', padding: '0.875rem 2.25rem', borderRadius: '0.5rem', fontWeight: 700, fontSize: '0.9rem', textDecoration: 'none', boxShadow: '0 4px 16px rgba(201,162,39,0.4)', display: 'inline-block' }}>
+          <ContactTrigger style={{ background: 'linear-gradient(135deg, var(--gold), var(--gold-dark))', color: 'white', padding: '0.875rem 2.25rem', borderRadius: '0.5rem', fontWeight: 700, fontSize: '0.9rem', textDecoration: 'none', boxShadow: '0 4px 16px rgba(201,162,39,0.4)', display: 'inline-block', border: 'none' }}>
             Enquire Now
-          </Link>
+          </ContactTrigger>
         </div>
       </section>
 

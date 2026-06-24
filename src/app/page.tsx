@@ -1,6 +1,24 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Award, Users, School, MapPin, GraduationCap, BookOpen } from 'lucide-react';
+import {
+  Award,
+  Users,
+  School,
+  MapPin,
+  GraduationCap,
+  BookOpen,
+  Compass,
+  Megaphone,
+  UserPlus,
+  ClipboardList,
+  TrendingUp,
+  UserCheck,
+  ClipboardCheck,
+  BadgeCheck,
+  Laptop
+} from 'lucide-react';
+import ContactTrigger from '@/components/ContactTrigger';
+import MovingNumber from '@/components/MovingNumber';
 
 const stats = [
   { icon: Award,          value: '50+',    label: 'Years Legacy' },
@@ -30,19 +48,19 @@ const steps = [
 ];
 
 const preLaunch = [
-  { num: '01', title: 'Architectural Support', desc: 'Land survey, construction plan, government approvals.' },
-  { num: '02', title: 'Marketing & Branding',  desc: 'Building branding, signage, standee, letter heads & media.' },
-  { num: '03', title: 'Hiring Support',         desc: 'On-site supervision of hiring teaching & non-teaching staff.' },
-  { num: '04', title: 'SOPs & Procedures',      desc: 'Standard Operating Procedure for teaching and administration.' },
-  { num: '05', title: 'Business Plans',         desc: 'Monthly, quarterly and annual business and academic plans.' },
+  { icon: Compass, title: 'Architectural Support', desc: 'Land survey, construction plan, government approvals.' },
+  { icon: Megaphone,  title: 'Marketing & Branding',  desc: 'Building branding, signage, standee, letter heads & media.' },
+  { icon: UserPlus,         title: 'Hiring Support',         desc: 'On-site supervision of hiring teaching & non-teaching staff.' },
+  { icon: ClipboardList,      title: 'SOPs & Procedures',      desc: 'Standard Operating Procedure for teaching and administration.' },
+  { icon: TrendingUp,         title: 'Business Plans',         desc: 'Monthly, quarterly and annual business and academic plans.' },
 ];
 
 const postLaunch = [
-  { num: '01', title: 'Staff Training',    desc: 'Continuous training on KRAs and NEP 2020 skill demands.' },
-  { num: '02', title: 'CBSE Curriculum',   desc: 'CBSE curriculum with sports, co-curricular and hobby activities.' },
-  { num: '03', title: 'Quality Monitoring',desc: 'Regular audits and suggestive remediations for quality.' },
-  { num: '04', title: 'CBSE Affiliation',  desc: 'Compliance assistance with CBSE regulations and bylaws.' },
-  { num: '05', title: 'IT & ERP Support',  desc: 'ERP software aligned with all DALIMSS branches.' },
+  { icon: UserCheck,    title: 'Staff Training',    desc: 'Continuous training on KRAs and NEP 2020 skill demands.' },
+  { icon: BookOpen,   title: 'CBSE Curriculum',   desc: 'CBSE curriculum with sports, co-curricular and hobby activities.' },
+  { icon: ClipboardCheck, title: 'Quality Monitoring',desc: 'Regular audits and suggestive remediations for quality.' },
+  { icon: BadgeCheck,  title: 'CBSE Affiliation',  desc: 'Compliance assistance with CBSE regulations and bylaws.' },
+  { icon: Laptop,  title: 'IT & ERP Support',  desc: 'ERP software aligned with all DALIMSS branches.' },
 ];
 
 const awards = [
@@ -296,7 +314,7 @@ export default function Home() {
                 }}>
                   <Icon size={22} style={{ color: 'var(--maroon)' }} />
                 </div>
-                <div style={{ fontWeight: 900, fontSize: '1.6rem', color: 'var(--maroon)', lineHeight: 1 }}>{value}</div>
+                <div style={{ fontWeight: 900, fontSize: '1.6rem', color: 'var(--maroon)', lineHeight: 1 }}><MovingNumber value={value} /></div>
                 <div style={{ fontSize: '0.75rem', color: '#777', fontWeight: 600, marginTop: '0.3rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{label}</div>
               </div>
             ))}
@@ -474,22 +492,26 @@ export default function Home() {
               </div>
               <p style={{ fontSize: '0.8rem', color: '#888', marginBottom: '1.25rem', fontStyle: 'italic' }}>Smooth launching ground</p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
-                {preLaunch.map((item) => (
-                  <div key={item.num} style={{ display: 'flex', gap: '0.85rem', alignItems: 'flex-start' }}>
-                    <div style={{
-                      width: '34px', height: '34px', borderRadius: '50%', flexShrink: 0,
-                      background: 'linear-gradient(135deg, var(--gold-dark), var(--gold))',
-                      color: 'white', fontWeight: 800, fontSize: '0.75rem',
-                      display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    }}>
-                      {item.num}
+                {preLaunch.map((item, idx) => {
+                  const IconComponent = item.icon;
+                  return (
+                    <div key={idx} style={{ display: 'flex', gap: '0.85rem', alignItems: 'flex-start' }}>
+                      <div style={{
+                        width: '34px', height: '34px', borderRadius: '50%', flexShrink: 0,
+                        background: 'linear-gradient(135deg, var(--gold-dark), var(--gold))',
+                        color: 'white',
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        boxShadow: '0 3px 8px rgba(201,162,39,0.2)',
+                      }}>
+                        <IconComponent size={16} />
+                      </div>
+                      <div>
+                        <div style={{ fontWeight: 700, fontSize: '0.875rem', color: 'var(--maroon)', lineHeight: 1.3 }}>{item.title}</div>
+                        <div style={{ fontSize: '0.78rem', color: '#666', lineHeight: 1.55, marginTop: '0.2rem' }}>{item.desc}</div>
+                      </div>
                     </div>
-                    <div>
-                      <div style={{ fontWeight: 700, fontSize: '0.875rem', color: 'var(--maroon)', lineHeight: 1.3 }}>{item.title}</div>
-                      <div style={{ fontSize: '0.78rem', color: '#666', lineHeight: 1.55, marginTop: '0.2rem' }}>{item.desc}</div>
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
 
@@ -508,22 +530,26 @@ export default function Home() {
               </div>
               <p style={{ fontSize: '0.8rem', color: '#888', marginBottom: '1.25rem', fontStyle: 'italic' }}>Robust growth plan</p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
-                {postLaunch.map((item) => (
-                  <div key={item.num} style={{ display: 'flex', gap: '0.85rem', alignItems: 'flex-start' }}>
-                    <div style={{
-                      width: '34px', height: '34px', borderRadius: '50%', flexShrink: 0,
-                      background: 'linear-gradient(135deg, var(--maroon-dark), var(--maroon))',
-                      color: 'white', fontWeight: 800, fontSize: '0.75rem',
-                      display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    }}>
-                      {item.num}
+                {postLaunch.map((item, idx) => {
+                  const IconComponent = item.icon;
+                  return (
+                    <div key={idx} style={{ display: 'flex', gap: '0.85rem', alignItems: 'flex-start' }}>
+                      <div style={{
+                        width: '34px', height: '34px', borderRadius: '50%', flexShrink: 0,
+                        background: 'linear-gradient(135deg, var(--maroon-dark), var(--maroon))',
+                        color: 'white',
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        boxShadow: '0 3px 8px rgba(123,28,28,0.15)',
+                      }}>
+                        <IconComponent size={16} />
+                      </div>
+                      <div>
+                        <div style={{ fontWeight: 700, fontSize: '0.875rem', color: 'var(--maroon)', lineHeight: 1.3 }}>{item.title}</div>
+                        <div style={{ fontSize: '0.78rem', color: '#666', lineHeight: 1.55, marginTop: '0.2rem' }}>{item.desc}</div>
+                      </div>
                     </div>
-                    <div>
-                      <div style={{ fontWeight: 700, fontSize: '0.875rem', color: 'var(--maroon)', lineHeight: 1.3 }}>{item.title}</div>
-                      <div style={{ fontSize: '0.78rem', color: '#666', lineHeight: 1.55, marginTop: '0.2rem' }}>{item.desc}</div>
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
 
@@ -557,15 +583,16 @@ export default function Home() {
             Join the DALIMSS Sunbeam family and be part of a 50+ year legacy transforming education across India.
           </p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.85rem', justifyContent: 'center' }}>
-            <Link href="/contact" style={{
+            <ContactTrigger style={{
               background: 'linear-gradient(135deg, var(--gold), var(--gold-dark))',
               color: 'white', padding: '0.875rem 2rem',
               borderRadius: '0.5rem', fontWeight: 700, fontSize: '0.9rem',
               textDecoration: 'none', letterSpacing: '0.01em',
               boxShadow: '0 4px 16px rgba(201,162,39,0.4)',
+              border: 'none',
             }}>
               Partner With Us
-            </Link>
+            </ContactTrigger>
             <Link href="/associate-schools" style={{
               border: '2px solid rgba(255,255,255,0.35)',
               color: 'white', padding: '0.875rem 2rem',

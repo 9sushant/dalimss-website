@@ -46,7 +46,7 @@ export default function Curriculum() {
         <div style={{ maxWidth: '72rem', margin: '0 auto' }}>
           <h2 className="section-heading">Our Academic <span style={{ color: 'var(--gold)' }}>Framework</span></h2>
           <p className="section-subheading">Comprehensive support from curriculum design to day-to-day implementation</p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(270px, 1fr))', gap: '1.5rem', marginTop: '1rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 340px), 1fr))', gap: '1.5rem', marginTop: '1rem' }}>
             {features.map((f) => (
               <div key={f.title} className="card" style={{ padding: '1.75rem' }}>
                 <div style={{ width: '52px', height: '52px', borderRadius: '14px', background: 'linear-gradient(135deg, #fdf4dc, #ffeeba)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', marginBottom: '1rem' }}>
@@ -65,7 +65,7 @@ export default function Curriculum() {
         <div style={{ maxWidth: '72rem', margin: '0 auto' }}>
           <h2 className="section-heading">What We <span style={{ color: 'var(--gold)' }}>Provide</span></h2>
           <p className="section-subheading">Everything your school needs to deliver world-class education</p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1.5rem', marginTop: '1rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 420px), 1fr))', gap: '1.5rem', marginTop: '1rem' }}>
             {provisions.map((section) => (
               <div key={section.title} className="card" style={{ padding: '1.75rem' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem', paddingBottom: '1rem', borderBottom: '2px solid var(--gold)' }}>

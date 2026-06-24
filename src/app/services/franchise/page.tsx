@@ -1,4 +1,5 @@
-import Link from 'next/link';
+import ContactTrigger from '@/components/ContactTrigger';
+import MovingNumber from '@/components/MovingNumber';
 
 export const metadata = {
   title: 'School Franchise | DALIMSS Sunbeam Educomp Ltd',
@@ -79,7 +80,7 @@ export default function Franchise() {
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1rem' }}>
             {[{ value: '25+', label: 'Schools' }, { value: '50+', label: 'Years Legacy' }, { value: '15,000+', label: 'Students' }, { value: '4', label: 'School Models' }].map(({ value, label }) => (
               <div key={label} style={{ background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(201,162,39,0.25)', borderRadius: '0.75rem', padding: '0.9rem 1.5rem', textAlign: 'center', backdropFilter: 'blur(8px)' }}>
-                <div style={{ fontWeight: 900, fontSize: '1.5rem', color: 'var(--gold)', lineHeight: 1 }}>{value}</div>
+                <div style={{ fontWeight: 900, fontSize: '1.5rem', color: 'var(--gold)', lineHeight: 1 }}><MovingNumber value={value} /></div>
                 <div style={{ fontSize: '0.68rem', color: 'rgba(255,255,255,0.5)', fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase' as const, marginTop: '0.3rem' }}>{label}</div>
               </div>
             ))}
@@ -92,7 +93,7 @@ export default function Franchise() {
         <div style={{ maxWidth: '72rem', margin: '0 auto' }}>
           <h2 className="section-heading">School <span style={{ color: 'var(--gold)' }}>Models</span> We Offer</h2>
           <p className="section-subheading">Choose the model that suits your specification, location and investment</p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1.5rem', marginTop: '1rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 420px), 1fr))', gap: '1.5rem', marginTop: '1rem' }}>
             {models.map((m) => (
               <div key={m.name} className="card" style={{ overflow: 'visible' }}>
                 <div style={{ height: '4px', background: m.accent, borderRadius: '1rem 1rem 0 0', margin: '-1px -1px 0' }} />
@@ -129,9 +130,9 @@ export default function Franchise() {
         <div style={{ maxWidth: '64rem', margin: '0 auto' }}>
           <h2 className="section-heading">Operation <span style={{ color: 'var(--gold)' }}>Models</span></h2>
           <p className="section-subheading">Flexible ownership and management structures to match your vision</p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: '1.5rem', marginTop: '1rem' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1.5rem', marginTop: '1rem' }}>
             {operationModels.map((m) => (
-              <div key={m.title} style={{ background: 'linear-gradient(145deg, #4a0f0f, var(--maroon))', borderRadius: '1.25rem', padding: '2rem 1.5rem', textAlign: 'center', boxShadow: '0 8px 32px rgba(123,28,28,0.25)' }}>
+              <div key={m.title} style={{ flex: '1 1 280px', maxWidth: '340px', background: 'linear-gradient(145deg, #4a0f0f, var(--maroon))', borderRadius: '1.25rem', padding: '2rem 1.5rem', textAlign: 'center', boxShadow: '0 8px 32px rgba(123,28,28,0.25)' }}>
                 <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>{m.icon}</div>
                 <h3 style={{ fontWeight: 800, fontSize: '0.9rem', color: 'var(--gold-light)', marginBottom: '0.65rem', lineHeight: 1.35 }}>{m.title}</h3>
                 <p style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.7)', lineHeight: 1.7 }}>{m.desc}</p>
@@ -146,9 +147,9 @@ export default function Franchise() {
         <div style={{ maxWidth: '72rem', margin: '0 auto' }}>
           <h2 className="section-heading">Key <span style={{ color: 'var(--gold)' }}>Information</span></h2>
           <p className="section-subheading">Everything you need to know before you begin</p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '1.25rem', marginTop: '1rem' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1.25rem', marginTop: '1rem' }}>
             {keyFacts.map((item, i) => (
-              <div key={item.q} className="card" style={{ padding: '1.5rem', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+              <div key={item.q} className="card" style={{ flex: '1 1 320px', maxWidth: '360px', padding: '1.5rem', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
                 <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: 'linear-gradient(135deg, var(--gold-dark), var(--gold))', color: 'white', fontWeight: 900, fontSize: '0.8rem', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                   {i + 1}
                 </div>
@@ -174,9 +175,9 @@ export default function Franchise() {
             Take the first step towards opening your own DALIMSS Sunbeam school. Our team will guide you through every stage.
           </p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.85rem', justifyContent: 'center' }}>
-            <Link href="/contact" style={{ background: 'linear-gradient(135deg, var(--gold), var(--gold-dark))', color: 'white', padding: '0.875rem 2rem', borderRadius: '0.5rem', fontWeight: 700, fontSize: '0.9rem', textDecoration: 'none', boxShadow: '0 4px 16px rgba(201,162,39,0.4)' }}>
+            <ContactTrigger style={{ background: 'linear-gradient(135deg, var(--gold), var(--gold-dark))', color: 'white', padding: '0.875rem 2rem', borderRadius: '0.5rem', fontWeight: 700, fontSize: '0.9rem', textDecoration: 'none', boxShadow: '0 4px 16px rgba(201,162,39,0.4)', border: 'none' }}>
               Partner With Us
-            </Link>
+            </ContactTrigger>
             <a href="/DALIMSS-Franchise-Application-Form.pdf" download style={{ border: '2px solid rgba(255,255,255,0.35)', color: 'white', padding: '0.875rem 2rem', borderRadius: '0.5rem', fontWeight: 600, fontSize: '0.9rem', textDecoration: 'none', background: 'rgba(255,255,255,0.06)' }}>
               Download Form
             </a>

@@ -82,20 +82,19 @@ const faqGroups = [
   },
 ];
 
-function FAQItem({ q, a }: { q: string; a: string }) {
-  const [open, setOpen] = useState(false);
+function FAQItem({ q, a, isOpen, onToggle }: { q: string; a: string; isOpen: boolean; onToggle: () => void }) {
   return (
     <div style={{ borderBottom: '1px solid #ede8da' }}>
       <button
-        onClick={() => setOpen(!open)}
+        onClick={onToggle}
         style={{ width: '100%', textAlign: 'left' as const, display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '1rem', padding: '1.1rem 0', background: 'none', border: 'none', cursor: 'pointer' }}
       >
-        <span style={{ fontWeight: 600, fontSize: '0.9rem', color: open ? 'var(--maroon)' : '#333', lineHeight: 1.55, transition: 'color 0.2s' }}>{q}</span>
-        <div style={{ width: '24px', height: '24px', borderRadius: '50%', background: open ? 'var(--maroon)' : 'var(--cream)', border: '1.5px solid', borderColor: open ? 'var(--maroon)' : '#ddd', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: '2px', transition: 'all 0.2s' }}>
-          <ChevronDown size={13} style={{ color: open ? 'var(--gold)' : '#888', transform: open ? 'rotate(180deg)' : 'none', transition: 'transform 0.25s ease' }} />
+        <span style={{ fontWeight: 600, fontSize: '0.9rem', color: isOpen ? 'var(--maroon)' : '#333', lineHeight: 1.55, transition: 'color 0.2s' }}>{q}</span>
+        <div style={{ width: '24px', height: '24px', borderRadius: '50%', background: isOpen ? 'var(--maroon)' : 'var(--cream)', border: '1.5px solid', borderColor: isOpen ? 'var(--maroon)' : '#ddd', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: '2px', transition: 'all 0.2s' }}>
+          <ChevronDown size={13} style={{ color: isOpen ? 'var(--gold)' : '#888', transform: isOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.25s ease' }} />
         </div>
       </button>
-      {open && (
+      {isOpen && (
         <div style={{ paddingBottom: '1.1rem', fontSize: '0.875rem', color: '#555', lineHeight: 1.85, borderLeft: '3px solid var(--gold)', paddingLeft: '1rem', marginBottom: '0.25rem' }}>
           {a}
         </div>
@@ -105,6 +104,8 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 }
 
 export default function FAQs() {
+  const [openQuestion, setOpenQuestion] = useState<string | null>(null);
+
   return (
     <main>
 
@@ -144,7 +145,13 @@ export default function FAQs() {
               {/* FAQ items */}
               <div className="card" style={{ padding: '0.25rem 1.5rem' }}>
                 {group.faqs.map((faq) => (
-                  <FAQItem key={faq.q} q={faq.q} a={faq.a} />
+                  <FAQItem
+                    key={faq.q}
+                    q={faq.q}
+                    a={faq.a}
+                    isOpen={openQuestion === faq.q}
+                    onToggle={() => setOpenQuestion(openQuestion === faq.q ? null : faq.q)}
+                  />
                 ))}
               </div>
             </div>

@@ -2,6 +2,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { schools } from '@/lib/schools';
 import { MapPin, ArrowRight } from 'lucide-react';
+import ContactTrigger from '@/components/ContactTrigger';
+import MovingNumber from '@/components/MovingNumber';
 
 export const metadata = {
   title: 'Associate Schools | DALIMSS Sunbeam Educomp Ltd',
@@ -70,7 +72,7 @@ export default function AssociateSchools() {
                 textAlign: 'center',
                 backdropFilter: 'blur(8px)',
               }}>
-                <div style={{ fontWeight: 900, fontSize: '1.5rem', color: 'var(--gold)', lineHeight: 1 }}>{value}</div>
+                <div style={{ fontWeight: 900, fontSize: '1.5rem', color: 'var(--gold)', lineHeight: 1 }}><MovingNumber value={value} /></div>
                 <div style={{ fontSize: '0.68rem', color: 'rgba(255,255,255,0.5)', fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase' as const, marginTop: '0.3rem' }}>{label}</div>
               </div>
             ))}
@@ -180,7 +182,7 @@ export default function AssociateSchools() {
                         flexShrink: 0,
                         boxShadow: '0 2px 8px rgba(123,28,28,0.25)',
                       }}>
-                        View <ArrowRight size={11} />
+                        Read More <ArrowRight size={11} />
                       </span>
                     </div>
                   </div>
@@ -217,15 +219,16 @@ export default function AssociateSchools() {
             Join India's fastest-growing school franchise network and transform education in your region.
           </p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.85rem', justifyContent: 'center' }}>
-            <Link href="/contact" style={{
+            <ContactTrigger style={{
               background: 'linear-gradient(135deg, var(--gold), var(--gold-dark))',
               color: 'white', padding: '0.875rem 2rem',
               borderRadius: '0.5rem', fontWeight: 700, fontSize: '0.9rem',
               textDecoration: 'none',
               boxShadow: '0 4px 16px rgba(201,162,39,0.4)',
+              border: 'none',
             }}>
               Enquire Now
-            </Link>
+            </ContactTrigger>
             <a href="/DALIMSS-Franchise-Application-Form.pdf" download style={{
               border: '2px solid rgba(255,255,255,0.35)',
               color: 'white', padding: '0.875rem 2rem',
