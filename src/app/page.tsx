@@ -15,7 +15,12 @@ import {
   UserCheck,
   ClipboardCheck,
   BadgeCheck,
-  Laptop
+  Laptop,
+  MessageSquare,
+  FileText,
+  Search,
+  Handshake,
+  Rocket
 } from 'lucide-react';
 import ContactTrigger from '@/components/ContactTrigger';
 import MovingNumber from '@/components/MovingNumber';
@@ -38,13 +43,13 @@ const values = [
 ];
 
 const steps = [
-  { num: '01', title: 'Express Interest',   desc: 'Deeply interested in setting up a school on owned land.' },
-  { num: '02', title: 'Site Visit',         desc: 'Site visit and feasibility study by DALIMSS team.' },
-  { num: '03', title: 'Details Shared',     desc: 'Infrastructure, academics and mandatory clearances.' },
-  { num: '04', title: 'Document Review',    desc: 'All documents cross-examined for Agreement approval.' },
-  { num: '05', title: 'Agreement',          desc: 'Signature of Agreement.' },
-  { num: '06', title: 'Pre-Launch Support', desc: 'Academic, administrative and functional assistance.' },
-  { num: '07', title: 'Academic Session',   desc: 'Beginning of the Academic Session of school.' },
+  { num: '01', icon: MessageSquare, title: 'Express Interest',   desc: 'Deeply interested in setting up a school on owned land.' },
+  { num: '02', icon: MapPin,        title: 'Site Visit',         desc: 'Site visit and feasibility study by DALIMSS team.' },
+  { num: '03', icon: FileText,      title: 'Details Shared',     desc: 'Infrastructure, academics and mandatory clearances.' },
+  { num: '04', icon: Search,        title: 'Document Review',    desc: 'All documents cross-examined for Agreement approval.' },
+  { num: '05', icon: Handshake,     title: 'Agreement',          desc: 'Signature of Agreement.' },
+  { num: '06', icon: Rocket,        title: 'Pre-Launch Support', desc: 'Academic, administrative and functional assistance.' },
+  { num: '07', icon: GraduationCap, title: 'Academic Session',   desc: 'Beginning of the Academic Session of school.' },
 ];
 
 const preLaunch = [
@@ -445,27 +450,29 @@ export default function Home() {
             gap: '1rem',
             marginTop: '1rem',
           }}>
-            {steps.map((step, i) => (
-              <div key={step.num} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', padding: '0.5rem' }}>
-                <div style={{
-                  width: '54px', height: '54px',
-                  borderRadius: '50%',
-                  background: i % 2 === 0
-                    ? 'linear-gradient(135deg, var(--gold-dark), var(--gold))'
-                    : 'linear-gradient(135deg, var(--maroon-dark), var(--maroon))',
-                  color: 'white',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontWeight: 800, fontSize: '1.1rem',
-                  boxShadow: i % 2 === 0 ? '0 4px 16px rgba(201,162,39,0.35)' : '0 4px 16px rgba(123,28,28,0.3)',
-                  flexShrink: 0,
-                  marginBottom: '0.75rem',
-                }}>
-                  {step.num}
+            {steps.map((step, i) => {
+              const Icon = step.icon;
+              return (
+                <div key={step.num} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', padding: '0.5rem' }}>
+                  <div style={{
+                    width: '54px', height: '54px',
+                    borderRadius: '50%',
+                    background: i % 2 === 0
+                      ? 'linear-gradient(135deg, var(--gold-dark), var(--gold))'
+                      : 'linear-gradient(135deg, var(--maroon-dark), var(--maroon))',
+                    color: 'white',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    boxShadow: i % 2 === 0 ? '0 4px 16px rgba(201,162,39,0.35)' : '0 4px 16px rgba(123,28,28,0.3)',
+                    flexShrink: 0,
+                    marginBottom: '0.75rem',
+                  }}>
+                    <Icon size={20} />
+                  </div>
+                  <h4 style={{ fontWeight: 700, fontSize: '0.78rem', color: 'var(--maroon)', marginBottom: '0.3rem', lineHeight: 1.3 }}>{step.title}</h4>
+                  <p style={{ fontSize: '0.68rem', color: '#666', lineHeight: 1.5 }}>{step.desc}</p>
                 </div>
-                <h4 style={{ fontWeight: 700, fontSize: '0.78rem', color: 'var(--maroon)', marginBottom: '0.3rem', lineHeight: 1.3 }}>{step.title}</h4>
-                <p style={{ fontSize: '0.68rem', color: '#666', lineHeight: 1.5 }}>{step.desc}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
