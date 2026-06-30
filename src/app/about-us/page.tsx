@@ -35,7 +35,7 @@ function LeaderPhoto({ src, alt }: { src: string; alt: string }) {
       flexShrink: 0,
       borderRadius: '1rem',
       overflow: 'hidden',
-      boxShadow: '0 8px 28px rgba(123,28,28,0.18)',
+      boxShadow: '0 8px 28px rgba(165,28,28,0.18)',
       border: '3px solid white',
       position: 'relative',
       aspectRatio: '3/4',
@@ -56,7 +56,7 @@ export default function AboutUs() {
     <main>
 
       {/* ── Hero ── */}
-      <section style={{ background: 'linear-gradient(135deg, #4a0f0f 0%, #7B1C1C 55%, #6b1515 100%)', position: 'relative', overflow: 'hidden' }}>
+      <section style={{ background: 'linear-gradient(135deg, var(--maroon-dark) 0%, var(--maroon) 55%, var(--maroon-light) 100%)', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', inset: 0, backgroundImage: 'radial-gradient(circle, rgba(201,162,39,0.08) 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
         <div style={{ height: '4px', background: 'linear-gradient(90deg, var(--gold-dark), var(--gold-light), var(--gold-dark))' }} />
         <div style={{ position: 'relative', maxWidth: '64rem', margin: '0 auto', padding: '4rem 1.5rem 3.5rem', textAlign: 'center' }}>

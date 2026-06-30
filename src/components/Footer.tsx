@@ -5,7 +5,7 @@ import ContactTrigger from '@/components/ContactTrigger';
 export default function Footer() {
   return (
     <footer style={{
-      background: 'linear-gradient(160deg, #3e0e0e 0%, var(--maroon-dark) 50%, #4a1010 100%)',
+      background: 'linear-gradient(160deg, #5C0E0E 0%, var(--maroon-dark) 50%, #4F0D0D 100%)',
       color: 'white',
     }}>
       <div style={{ maxWidth: '80rem', margin: '0 auto', padding: '3.5rem 1.5rem 2rem' }}>

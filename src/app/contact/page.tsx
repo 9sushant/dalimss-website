@@ -51,7 +51,7 @@ export default function Contact() {
     <main>
 
       {/* ── Hero ── */}
-      <section style={{ background: 'linear-gradient(135deg, #4a0f0f 0%, #7B1C1C 55%, #6b1515 100%)', position: 'relative', overflow: 'hidden' }}>
+      <section style={{ background: 'linear-gradient(135deg, var(--maroon-dark) 0%, var(--maroon) 55%, var(--maroon-light) 100%)', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', inset: 0, backgroundImage: 'radial-gradient(circle, rgba(201,162,39,0.08) 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
         <div style={{ height: '4px', background: 'linear-gradient(90deg, var(--gold-dark), var(--gold-light), var(--gold-dark))' }} />
         <div style={{ position: 'relative', maxWidth: '64rem', margin: '0 auto', padding: '4rem 1.5rem 3.5rem', textAlign: 'center' }}>
@@ -86,7 +86,7 @@ export default function Contact() {
               { icon: MapPin, label: 'Head Office', value: 'Varanasi, Uttar Pradesh, India', href: '#' },
             ].map(({ icon: Icon, label, value, href }) => (
               <div key={label} className="card" style={{ padding: '1.25rem', display: 'flex', gap: '1rem', alignItems: 'center' }}>
-                <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: 'linear-gradient(135deg, var(--maroon-dark), var(--maroon))', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, boxShadow: '0 4px 12px rgba(123,28,28,0.25)' }}>
+                <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: 'linear-gradient(135deg, var(--maroon-dark), var(--maroon))', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, boxShadow: '0 4px 12px rgba(165,28,28,0.25)' }}>
                   <Icon size={18} style={{ color: 'var(--gold)' }} />
                 </div>
                 <div>
@@ -178,7 +178,7 @@ export default function Contact() {
                   <button
                     type="submit"
                     disabled={status === 'loading'}
-                    style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', padding: '0.85rem', borderRadius: '0.5rem', background: 'linear-gradient(135deg, var(--maroon), var(--maroon-dark))', color: 'white', fontWeight: 700, fontSize: '0.9rem', border: 'none', cursor: status === 'loading' ? 'not-allowed' : 'pointer', opacity: status === 'loading' ? 0.7 : 1, boxShadow: '0 4px 16px rgba(123,28,28,0.3)', fontFamily: 'inherit' }}
+                    style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', padding: '0.85rem', borderRadius: '0.5rem', background: 'linear-gradient(135deg, var(--maroon), var(--maroon-dark))', color: 'white', fontWeight: 700, fontSize: '0.9rem', border: 'none', cursor: status === 'loading' ? 'not-allowed' : 'pointer', opacity: status === 'loading' ? 0.7 : 1, boxShadow: '0 4px 16px rgba(165,28,28,0.3)', fontFamily: 'inherit' }}
                   >
                     <Send size={15} />
                     {status === 'loading' ? 'Sending…' : 'Submit Enquiry'}

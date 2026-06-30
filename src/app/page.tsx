@@ -82,7 +82,7 @@ export default function Home() {
 
       {/* ═══ HERO ═══ */}
       <section style={{
-        background: 'linear-gradient(135deg, #4a0f0f 0%, #7B1C1C 55%, #6b1515 100%)',
+        background: 'linear-gradient(135deg, var(--maroon-dark) 0%, var(--maroon) 55%, var(--maroon-light) 100%)',
         position: 'relative',
         overflow: 'hidden',
       }}>
@@ -116,37 +116,93 @@ export default function Home() {
                 50+ Years of Educational Excellence
               </div>
 
-              <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.1rem', marginBottom: '0.25rem', fontWeight: 500 }}>
+              <p style={{
+                color: 'rgba(255,255,255,0.85)',
+                fontSize: 'clamp(1.8rem, 4vw, 2.6rem)',
+                fontWeight: 800,
+                letterSpacing: '-0.02em',
+                lineHeight: 1.1,
+                marginBottom: '0.2rem',
+              }}>
                 In an
               </p>
               <h1 style={{
                 color: 'var(--gold)',
-                fontWeight: 900,
-                fontSize: 'clamp(2.2rem, 5.5vw, 3.75rem)',
-                lineHeight: 1.05,
-                letterSpacing: '-0.03em',
+                fontWeight: 800,
+                fontSize: 'clamp(1.1rem, 2.5vw, 1.4rem)',
+                lineHeight: 1.2,
+                letterSpacing: '0.08em',
+                textTransform: 'uppercase',
+                margin: '0.25rem 0 0.5rem 0',
               }}>
                 evolving &amp; volatile
               </h1>
               <h2 style={{
                 color: 'white',
                 fontWeight: 900,
-                fontSize: 'clamp(3rem, 7.5vw, 5.5rem)',
+                fontSize: 'clamp(2.2rem, 5vw, 3.4rem)',
                 letterSpacing: '-0.04em',
                 lineHeight: 0.95,
-                margin: '0.1rem 0',
+                margin: '0.1rem 0 0.75rem 0',
               }}>
                 WORLD
               </h2>
               <p style={{
                 color: 'var(--gold-light)',
                 fontWeight: 700,
-                fontSize: 'clamp(1.4rem, 3vw, 2.2rem)',
+                fontSize: 'clamp(2.4rem, 6vw, 4.2rem)',
                 fontStyle: 'italic',
                 lineHeight: 1.2,
-                marginTop: '0.5rem',
+                marginTop: '0.75rem',
               }}>
-                Explore growth <span style={{ color: 'white' }}>in</span> education
+                Explore{' '}
+                <span style={{
+                  position: 'relative',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  background: 'linear-gradient(135deg, var(--gold), #FFE082)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  fontWeight: 900,
+                  paddingRight: '0.15em',
+                }}>
+                  growth
+                  <span style={{
+                    display: 'inline-block',
+                    marginLeft: '0.08em',
+                    WebkitTextFillColor: 'initial',
+                  }}>
+                    <TrendingUp style={{
+                      width: '0.75em',
+                      height: '0.75em',
+                      strokeWidth: 3.5,
+                      stroke: 'var(--gold)',
+                      filter: 'drop-shadow(0 2px 8px rgba(201,162,39,0.5))',
+                      display: 'block',
+                    }} />
+                  </span>
+                  <svg
+                    viewBox="0 0 100 10"
+                    width="100%"
+                    height="8px"
+                    style={{
+                      position: 'absolute',
+                      bottom: '-4px',
+                      left: 0,
+                      overflow: 'visible',
+                    }}
+                  >
+                    <path
+                      d="M2,4 Q50,9 95,2"
+                      fill="none"
+                      stroke="var(--gold)"
+                      strokeWidth="3.5"
+                      strokeLinecap="round"
+                      opacity="0.85"
+                    />
+                  </svg>
+                </span>{' '}
+                <span style={{ color: 'white' }}>in</span> education
               </p>
 
               <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '1rem', marginTop: '1.25rem', maxWidth: '480px', lineHeight: 1.7 }}>
@@ -343,7 +399,7 @@ export default function Home() {
                 borderRadius: '1.25rem',
                 background: 'linear-gradient(145deg, var(--maroon-dark), var(--maroon))',
                 color: 'white',
-                boxShadow: '0 8px 32px rgba(123,28,28,0.25)',
+                boxShadow: '0 8px 32px rgba(165,28,28,0.25)',
                 textAlign: 'center',
               }}>
                 <div style={{ fontSize: '2.75rem', marginBottom: '1rem' }}>{item.icon}</div>
@@ -388,7 +444,7 @@ export default function Home() {
       </section>
 
       {/* ═══ AWARDS ═══ */}
-      <section style={{ background: 'linear-gradient(160deg, #2a0808 0%, #4a0f0f 40%, #7B1C1C 100%)', padding: '5rem 1.5rem', position: 'relative', overflow: 'hidden' }}>
+      <section style={{ background: 'linear-gradient(160deg, #510a0a 0%, var(--maroon-dark) 40%, var(--maroon) 100%)', padding: '5rem 1.5rem', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', inset: 0, backgroundImage: 'radial-gradient(circle, rgba(201,162,39,0.06) 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
         {/* Gold top accent */}
         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'linear-gradient(90deg, var(--gold-dark), var(--gold-light), var(--gold-dark))' }} />
@@ -419,7 +475,7 @@ export default function Home() {
                   {/* Dark gradient overlay bottom */}
                   <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(30,5,5,0.92) 0%, rgba(0,0,0,0.2) 55%, transparent 100%)' }} />
                   {/* Badge pill top-right */}
-                  <div style={{ position: 'absolute', top: '0.75rem', right: '0.75rem', background: 'rgba(201,162,39,0.95)', borderRadius: '2rem', padding: '0.2rem 0.6rem', fontSize: '0.65rem', fontWeight: 800, color: '#2a0808', letterSpacing: '0.06em', textTransform: 'uppercase' as const }}>
+                  <div style={{ position: 'absolute', top: '0.75rem', right: '0.75rem', background: 'rgba(201,162,39,0.95)', borderRadius: '2rem', padding: '0.2rem 0.6rem', fontSize: '0.65rem', fontWeight: 800, color: 'var(--maroon-dark)', letterSpacing: '0.06em', textTransform: 'uppercase' as const }}>
                     Award
                   </div>
                   {/* Text overlay at bottom of photo */}
@@ -462,7 +518,7 @@ export default function Home() {
                       : 'linear-gradient(135deg, var(--maroon-dark), var(--maroon))',
                     color: 'white',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    boxShadow: i % 2 === 0 ? '0 4px 16px rgba(201,162,39,0.35)' : '0 4px 16px rgba(123,28,28,0.3)',
+                    boxShadow: i % 2 === 0 ? '0 4px 16px rgba(201,162,39,0.35)' : '0 4px 16px rgba(165,28,28,0.3)',
                     flexShrink: 0,
                     marginBottom: '0.75rem',
                   }}>
@@ -546,7 +602,7 @@ export default function Home() {
                         background: 'linear-gradient(135deg, var(--maroon-dark), var(--maroon))',
                         color: 'white',
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
-                        boxShadow: '0 3px 8px rgba(123,28,28,0.15)',
+                        boxShadow: '0 3px 8px rgba(165,28,28,0.15)',
                       }}>
                         <IconComponent size={16} />
                       </div>

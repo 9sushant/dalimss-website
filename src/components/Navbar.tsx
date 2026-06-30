@@ -145,7 +145,7 @@ export default function Navbar() {
             fontSize: '0.84rem', fontWeight: 700,
             textDecoration: 'none',
             letterSpacing: '0.01em',
-            boxShadow: '0 2px 8px rgba(123,28,28,0.25)',
+            boxShadow: '0 2px 8px rgba(165,28,28,0.25)',
             transition: 'opacity 0.15s',
           }}>
             Contact Us

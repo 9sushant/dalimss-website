@@ -16,7 +16,7 @@ export default function AssociateSchools() {
 
       {/* ── Hero ── */}
       <section style={{
-        background: 'linear-gradient(135deg, #4a0f0f 0%, #7B1C1C 55%, #6b1515 100%)',
+        background: 'linear-gradient(135deg, var(--maroon-dark) 0%, var(--maroon) 55%, var(--maroon-light) 100%)',
         position: 'relative',
         overflow: 'hidden',
       }}>
@@ -119,7 +119,7 @@ export default function AssociateSchools() {
                     ) : (
                       <div style={{
                         position: 'absolute', inset: 0,
-                        background: 'linear-gradient(135deg, #4a0f0f 0%, var(--maroon) 100%)',
+                        background: 'linear-gradient(135deg, var(--maroon-dark) 0%, var(--maroon) 100%)',
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
                       }}>
                         <span style={{ fontSize: '3rem', opacity: 0.25 }}>🏫</span>
@@ -180,7 +180,7 @@ export default function AssociateSchools() {
                         fontWeight: 700,
                         letterSpacing: '0.02em',
                         flexShrink: 0,
-                        boxShadow: '0 2px 8px rgba(123,28,28,0.25)',
+                        boxShadow: '0 2px 8px rgba(165,28,28,0.25)',
                       }}>
                         Read More <ArrowRight size={11} />
                       </span>

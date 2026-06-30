@@ -37,7 +37,7 @@ export default function Toddlers() {
     <main>
 
       {/* ── Hero ── */}
-      <section style={{ background: 'linear-gradient(135deg, #4a0f0f 0%, #7B1C1C 55%, #6b1515 100%)', position: 'relative', overflow: 'hidden' }}>
+      <section style={{ background: 'linear-gradient(135deg, var(--maroon-dark) 0%, var(--maroon) 55%, var(--maroon-light) 100%)', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', inset: 0, backgroundImage: 'radial-gradient(circle, rgba(201,162,39,0.08) 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
         <div style={{ height: '4px', background: 'linear-gradient(90deg, var(--gold-dark), var(--gold-light), var(--gold-dark))' }} />
         <div style={{ position: 'relative', maxWidth: '64rem', margin: '0 auto', padding: '4rem 1.5rem 3.5rem', textAlign: 'center' }}>
@@ -103,7 +103,7 @@ export default function Toddlers() {
           <p className="section-subheading">Core approvals needed to run a compliant playschool</p>
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1rem', marginTop: '1rem' }}>
             {permissions.map((perm) => (
-              <div key={perm.label} style={{ flex: '1 1 180px', maxWidth: '240px', background: 'linear-gradient(145deg, #4a0f0f, var(--maroon))', borderRadius: '1rem', padding: '1.5rem 1rem', textAlign: 'center', boxShadow: '0 4px 16px rgba(123,28,28,0.2)' }}>
+              <div key={perm.label} style={{ flex: '1 1 180px', maxWidth: '240px', background: 'linear-gradient(145deg, var(--maroon-dark), var(--maroon))', borderRadius: '1rem', padding: '1.5rem 1rem', textAlign: 'center', boxShadow: '0 4px 16px rgba(165,28,28,0.2)' }}>
                 <div style={{ fontSize: '1.75rem', marginBottom: '0.6rem' }}>{perm.icon}</div>
                 <p style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--gold-light)', lineHeight: 1.4 }}>{perm.label}</p>
               </div>

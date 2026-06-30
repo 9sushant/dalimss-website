@@ -27,13 +27,13 @@ export async function POST(req: NextRequest) {
       subject: `New Partner Enquiry — ${name}`,
       html: `
         <div style="font-family:sans-serif;max-width:600px;margin:auto">
-          <div style="background:#7B1C1C;padding:20px 28px">
+          <div style="background:#A51C1C;padding:20px 28px">
             <h2 style="color:#C9A227;margin:0">New Partner Enquiry</h2>
           </div>
           <div style="padding:24px 28px;border:1px solid #e0e0e0">
             <table style="width:100%;border-collapse:collapse;font-size:14px">
               <tr><td style="padding:8px 0;color:#888;width:140px">Full Name</td><td style="padding:8px 0;font-weight:600">${name}</td></tr>
-              <tr style="background:#fafafa"><td style="padding:8px 0;color:#888">Email</td><td style="padding:8px 0"><a href="mailto:${email}" style="color:#7B1C1C">${email}</a></td></tr>
+              <tr style="background:#fafafa"><td style="padding:8px 0;color:#888">Email</td><td style="padding:8px 0"><a href="mailto:${email}" style="color:#A51C1C">${email}</a></td></tr>
               <tr><td style="padding:8px 0;color:#888">Contact No.</td><td style="padding:8px 0">${phone}</td></tr>
               <tr style="background:#fafafa"><td style="padding:8px 0;color:#888">School Type</td><td style="padding:8px 0">${school_type || '—'}</td></tr>
               <tr><td style="padding:8px 0;color:#888">State</td><td style="padding:8px 0">${state || '—'}</td></tr>

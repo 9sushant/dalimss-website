@@ -20,7 +20,7 @@ export default function Consultancy() {
     <main>
 
       {/* ── Hero ── */}
-      <section style={{ background: 'linear-gradient(135deg, #4a0f0f 0%, #7B1C1C 55%, #6b1515 100%)', position: 'relative', overflow: 'hidden' }}>
+      <section style={{ background: 'linear-gradient(135deg, var(--maroon-dark) 0%, var(--maroon) 55%, var(--maroon-light) 100%)', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', inset: 0, backgroundImage: 'radial-gradient(circle, rgba(201,162,39,0.08) 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
         <div style={{ height: '4px', background: 'linear-gradient(90deg, var(--gold-dark), var(--gold-light), var(--gold-dark))' }} />
         <div style={{ position: 'relative', maxWidth: '64rem', margin: '0 auto', padding: '4rem 1.5rem 3.5rem', textAlign: 'center' }}>
@@ -63,7 +63,7 @@ export default function Consultancy() {
       {/* ── DDUGKY ── */}
       <section style={{ background: 'var(--cream)', padding: '5rem 1.5rem' }}>
         <div style={{ maxWidth: '64rem', margin: '0 auto' }}>
-          <div style={{ background: 'linear-gradient(135deg, #4a0f0f 0%, var(--maroon) 100%)', borderRadius: '1.5rem', padding: '3rem', position: 'relative', overflow: 'hidden', boxShadow: '0 16px 48px rgba(123,28,28,0.3)' }}>
+          <div style={{ background: 'linear-gradient(135deg, var(--maroon-dark) 0%, var(--maroon) 100%)', borderRadius: '1.5rem', padding: '3rem', position: 'relative', overflow: 'hidden', boxShadow: '0 16px 48px rgba(165,28,28,0.3)' }}>
             <div style={{ position: 'absolute', inset: 0, backgroundImage: 'radial-gradient(circle, rgba(201,162,39,0.07) 1px, transparent 1px)', backgroundSize: '24px 24px', borderRadius: '1.5rem' }} />
             <div style={{ position: 'relative', display: 'grid', gridTemplateColumns: 'auto 1fr', gap: '2rem', alignItems: 'center' }}>
               <div style={{ fontSize: '4rem', background: 'rgba(201,162,39,0.15)', border: '2px solid rgba(201,162,39,0.3)', borderRadius: '50%', width: '90px', height: '90px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>

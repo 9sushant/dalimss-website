@@ -168,7 +168,7 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
 
           {/* Body */}
           <div style={{
-            background: 'linear-gradient(180deg, #7B1C1C 0%, #5a1313 100%)',
+            background: 'linear-gradient(180deg, var(--maroon) 0%, var(--maroon-dark) 100%)',
             padding: '1.5rem 1.25rem',
           }}>
             {status === 'success' ? (

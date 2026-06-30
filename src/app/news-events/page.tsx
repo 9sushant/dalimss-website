@@ -75,7 +75,7 @@ const newsItems: NewsItem[] = [
 ];
 
 const categoryStyle: Record<string, { bg: string; color: string; border: string }> = {
-  Award:       { bg: 'rgba(123,28,28,0.1)',  color: 'var(--maroon)',  border: 'rgba(123,28,28,0.2)' },
+  Award:       { bg: 'rgba(165,28,28,0.1)',  color: 'var(--maroon)',  border: 'rgba(165,28,28,0.2)' },
   Recognition: { bg: 'rgba(201,162,39,0.12)', color: '#8a6d00',       border: 'rgba(201,162,39,0.3)' },
   Expo:        { bg: 'rgba(33,150,243,0.1)',  color: '#1565c0',        border: 'rgba(33,150,243,0.2)' },
   Milestone:   { bg: 'rgba(56,142,60,0.1)',   color: '#2e7d32',        border: 'rgba(56,142,60,0.2)' },
@@ -191,7 +191,7 @@ export default function NewsEvents() {
 
       {/* ── Hero ── */}
       <section style={{
-        background: 'linear-gradient(135deg, #4a0f0f 0%, #7B1C1C 55%, #6b1515 100%)',
+        background: 'linear-gradient(135deg, var(--maroon-dark) 0%, var(--maroon) 55%, var(--maroon-light) 100%)',
         position: 'relative',
         overflow: 'hidden',
       }}>
@@ -236,7 +236,7 @@ export default function NewsEvents() {
       <section style={{ background: 'var(--cream)', padding: '4rem 1.5rem 0' }}>
         <div style={{ maxWidth: '72rem', margin: '0 auto' }}>
           <div style={{
-            background: 'linear-gradient(135deg, #4a0f0f 0%, var(--maroon) 60%, #8b2020 100%)',
+            background: 'linear-gradient(135deg, var(--maroon-dark) 0%, var(--maroon) 60%, var(--maroon-light) 100%)',
             borderRadius: '1.25rem',
             overflow: 'hidden',
             display: 'grid',
@@ -245,7 +245,7 @@ export default function NewsEvents() {
             gap: '2rem',
             padding: '2.5rem 3rem',
             position: 'relative',
-            boxShadow: '0 16px 48px rgba(123,28,28,0.35)',
+            boxShadow: '0 16px 48px rgba(165,28,28,0.35)',
           }}>
             {/* Pattern overlay */}
             <div style={{

@@ -115,7 +115,7 @@ export default async function SchoolPage({ params }: { params: Promise<{ slug: s
                   {/* Card Body */}
                   <div
                     style={{
-                      background: 'linear-gradient(180deg, #7B1C1C 0%, #6b1515 100%)',
+                      background: 'linear-gradient(180deg, var(--maroon) 0%, var(--maroon-dark) 100%)',
                       padding: '1.5rem 1.25rem',
                       display: 'flex',
                       flexDirection: 'column',
@@ -198,7 +198,7 @@ export default async function SchoolPage({ params }: { params: Promise<{ slug: s
       {/* Facilities */}
       <section
         style={{
-          background: 'linear-gradient(180deg, #4a0f0f 0%, #7B1C1C 50%, #4a0f0f 100%)',
+          background: 'linear-gradient(180deg, var(--maroon-dark) 0%, var(--maroon) 50%, var(--maroon-dark) 100%)',
           position: 'relative',
           overflow: 'hidden',
         }}

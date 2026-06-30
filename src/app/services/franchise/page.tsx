@@ -39,8 +39,8 @@ const models = [
     name: 'DALIMSS Sunbeam — The Dream Woods',
     sub: 'Senior Secondary School',
     grades: 'Up to Grade 12',
-    accent: '#7B1C1C',
-    accentLight: 'rgba(123,28,28,0.08)',
+    accent: '#A51C1C',
+    accentLight: 'rgba(165,28,28,0.08)',
     details: ['Metros: ~2,400–4,000 sq. m.', 'Tier 1/2 Cities: ~4,000–6,000 sq. m.', 'Rural: ~6,000–8,000 sq. m. (1.5–2 acres)', 'CBSE/ICSE affiliation via SARAS portal', 'Non-profit entity mandatory'],
   },
 ];
@@ -64,7 +64,7 @@ export default function Franchise() {
     <main>
 
       {/* ── Hero ── */}
-      <section style={{ background: 'linear-gradient(135deg, #4a0f0f 0%, #7B1C1C 55%, #6b1515 100%)', position: 'relative', overflow: 'hidden' }}>
+      <section style={{ background: 'linear-gradient(135deg, var(--maroon-dark) 0%, var(--maroon) 55%, var(--maroon-light) 100%)', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', inset: 0, backgroundImage: 'radial-gradient(circle, rgba(201,162,39,0.08) 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
         <div style={{ height: '4px', background: 'linear-gradient(90deg, var(--gold-dark), var(--gold-light), var(--gold-dark))' }} />
         <div style={{ position: 'relative', maxWidth: '64rem', margin: '0 auto', padding: '4rem 1.5rem 3.5rem', textAlign: 'center' }}>
@@ -132,7 +132,7 @@ export default function Franchise() {
           <p className="section-subheading">Flexible ownership and management structures to match your vision</p>
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1.5rem', marginTop: '1rem' }}>
             {operationModels.map((m) => (
-              <div key={m.title} style={{ flex: '1 1 280px', maxWidth: '340px', background: 'linear-gradient(145deg, #4a0f0f, var(--maroon))', borderRadius: '1.25rem', padding: '2rem 1.5rem', textAlign: 'center', boxShadow: '0 8px 32px rgba(123,28,28,0.25)' }}>
+              <div key={m.title} style={{ flex: '1 1 280px', maxWidth: '340px', background: 'linear-gradient(145deg, var(--maroon-dark), var(--maroon))', borderRadius: '1.25rem', padding: '2rem 1.5rem', textAlign: 'center', boxShadow: '0 8px 32px rgba(165,28,28,0.25)' }}>
                 <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>{m.icon}</div>
                 <h3 style={{ fontWeight: 800, fontSize: '0.9rem', color: 'var(--gold-light)', marginBottom: '0.65rem', lineHeight: 1.35 }}>{m.title}</h3>
                 <p style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.7)', lineHeight: 1.7 }}>{m.desc}</p>
